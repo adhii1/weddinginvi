@@ -245,6 +245,17 @@ html, body {
     display: block;
 }
 
+/* Mobile: slightly increase zoom so the image fills the first page more naturally.
+   scale(1.15) gives a balanced middle ground between the previous
+   over-zoomed and the current over-zoomed-out appearances.
+   object-fit: contain is preserved — no cropping or empty gaps. */
+@media (max-width: 767px) {
+    .page1-bg-img {
+        transform: scale(1.15);
+        transform-origin: center center;
+    }
+}
+
 /*
  * ── PAGE 1 TEXT OVERLAY ─────────────────────────────────────────────────
  *

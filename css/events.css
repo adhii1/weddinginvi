@@ -255,6 +255,9 @@
     box-sizing: border-box;
     padding: 0 1rem;
     transform: translateY(-50%);
+    /* Ensure the title is hidden when the front face rotates away (mobile fix) */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .event-card-title-text {
@@ -804,4 +807,24 @@
 .event-venue-img-btn:active {
     transform: scale(1.03);
     box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+}
+
+/* ── Mobile: Fix 3D flip card backface bleed-through on iOS Safari / Android Chrome ──
+   On touch devices, GPU compositing can render front-face overlays (the title)
+   through the back face. will-change: transform creates an isolated GPU layer
+   for the flipper, and the explicit -webkit-backface-visibility on the inner
+   ensures the browser's compositing engine respects the 3D culling. */
+@media (hover: none), (pointer: coarse) {
+    .event-flip-card-inner {
+        will-change: transform;
+        isolation: isolate;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
+    .event-card-front,
+    .event-card-back {
+        -webkit-transform: translateZ(0);
+        /* translateZ(0) forces each face onto its own GPU layer so
+           backface-visibility is honoured correctly on mobile browsers. */
+    }
 }
