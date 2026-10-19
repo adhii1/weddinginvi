@@ -15,18 +15,18 @@
     --color-gold-dark: #9A7B1C;
     --color-cream: #FFF9F3;
     --color-peach: #FFF0E6;
-    
+
     /* Haldi Theme */
     --bg-haldi: linear-gradient(180deg, #FFFBEB 0%, #FEF08A 60%, #FDE047 100%);
     --color-haldi-text: #46260b;
-    
+
     /* Sangeet Theme */
     --bg-sangeet: linear-gradient(180deg, #180E29 0%, #0D0618 70%, #030107 100%);
     --color-sangeet-gold: #FDE047;
-    
+
     /* Reception Theme */
     --bg-reception: linear-gradient(180deg, #2D0F39 0%, #170824 60%, #0B0314 100%);
-    
+
     /* Dark Velvet Closing Theme */
     --bg-closing: linear-gradient(180deg, #3A0A14 0%, #20040A 100%);
 
@@ -51,7 +51,8 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -136,8 +137,13 @@ html, body {
     animation: wave 1.2s infinite ease-in-out;
 }
 
-.music-waves span:nth-child(2) { animation-delay: 0.2s; }
-.music-waves span:nth-child(3) { animation-delay: 0.4s; }
+.music-waves span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.music-waves span:nth-child(3) {
+    animation-delay: 0.4s;
+}
 
 /* Side Navigation Progress Dots */
 .nav-dots {
@@ -209,7 +215,8 @@ html, body {
    SCREEN 1: WELCOME COVER (PAGE 1)
    -------------------------------------------------------------------------- */
 #screen-welcome {
-    background: #F5EFEB; /* matches the warm cream border tone of i.jpeg */
+    background: #F5EFEB;
+    /* matches the warm cream border tone of i.jpeg */
     padding: 0;
     position: relative;
     overflow: hidden;
@@ -243,17 +250,6 @@ html, body {
     object-fit: contain;
     object-position: center center;
     display: block;
-}
-
-/* Mobile: slightly increase zoom so the image fills the first page more naturally.
-   scale(1.15) gives a balanced middle ground between the previous
-   over-zoomed and the current over-zoomed-out appearances.
-   object-fit: contain is preserved — no cropping or empty gaps. */
-@media (max-width: 767px) {
-    .page1-bg-img {
-        transform: scale(1.15);
-        transform-origin: center center;
-    }
 }
 
 /*
@@ -312,7 +308,7 @@ html, body {
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 0.22rem;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
 }
 
 /* ── Thin gold rule ── */
@@ -334,7 +330,7 @@ html, body {
     text-transform: uppercase;
     line-height: 1.25;
     margin-bottom: 0.65rem;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.7), 0 0 20px rgba(212,175,55,0.35);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.35);
 }
 
 /* ── "To Witness a Forever of Love" ── */
@@ -345,7 +341,7 @@ html, body {
     color: #F8E5C4;
     line-height: 1.45;
     margin-bottom: 0.5rem;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
 }
 
 /* ── "Join Us for a Beautiful Beginning" ── */
@@ -356,7 +352,7 @@ html, body {
     color: #F5DEC2;
     line-height: 1.45;
     margin-bottom: 0.5rem;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.65);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.65);
 }
 
 /* ── "As Two Hearts Become One" ── */
@@ -367,7 +363,7 @@ html, body {
     color: #FFF2B3;
     line-height: 1.45;
     margin-bottom: 0;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
 }
 
 /* ── Couple name block ── */
@@ -380,7 +376,8 @@ html, body {
     gap: 0.08rem;
 }
 
-.page1-bride-name, .page1-groom-name {
+.page1-bride-name,
+.page1-groom-name {
     font-family: var(--font-serif-title);
     font-size: clamp(1.15rem, 4.4vw, 1.55rem);
     color: #FFFDF7;
@@ -389,8 +386,8 @@ html, body {
     letter-spacing: 2px;
     text-transform: uppercase;
     text-shadow:
-        0 2px 12px rgba(0,0,0,0.7),
-        0 0  20px rgba(212,175,55,0.35);
+        0 2px 12px rgba(0, 0, 0, 0.7),
+        0 0 20px rgba(212, 175, 55, 0.35);
 }
 
 .page1-ampersand {
@@ -400,7 +397,7 @@ html, body {
     color: #E8C359;
     display: block;
     margin: 0.04rem 0;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.55);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
 }
 
 /* ── Date ── */
@@ -411,7 +408,7 @@ html, body {
     color: #F5CE62;
     font-weight: 600;
     margin-top: 0.35rem;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
 }
 
 /* ── Location ── */
@@ -423,7 +420,7 @@ html, body {
     margin-top: 0.14rem;
     text-transform: uppercase;
     font-weight: 500;
-    text-shadow: 0 1px 5px rgba(0,0,0,0.55);
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.55);
 }
 
 /* ── Responsive fine-tuning ── */
@@ -436,11 +433,23 @@ html, body {
         top: 50%;
         gap: 0;
     }
-    .page1-invited-heading               { font-size: 1.15rem; margin-bottom: 0.3rem; letter-spacing: 2px; }
+
+    .page1-invited-heading {
+        font-size: 1.15rem;
+        margin-bottom: 0.3rem;
+        letter-spacing: 2px;
+    }
+
     .page1-left-subtext,
     .page1-invite-intro,
-    .page1-invite-line4                  { font-size: 0.88rem; margin-bottom: 0.22rem; }
-    .page1-invite-line4                  { margin-bottom: 0; }
+    .page1-invite-line4 {
+        font-size: 0.88rem;
+        margin-bottom: 0.22rem;
+    }
+
+    .page1-invite-line4 {
+        margin-bottom: 0;
+    }
 }
 
 /* Portrait mobile phones (≤ 480px wide) — prominent heading & comfortable readability, centered */
@@ -450,6 +459,7 @@ html, body {
         top: 50%;
         padding: 0 0.5rem;
     }
+
     .page1-invited-heading {
         font-size: clamp(1.35rem, 5.8vw, 1.65rem);
         letter-spacing: 2.2px;
@@ -457,6 +467,7 @@ html, body {
         margin-bottom: 0.55rem;
         line-height: 1.25;
     }
+
     .page1-left-subtext,
     .page1-invite-intro,
     .page1-invite-line4 {
@@ -464,12 +475,16 @@ html, body {
         line-height: 1.42;
         margin-bottom: 0.42rem;
     }
+
     .page1-invite-line4 {
         margin-bottom: 0;
     }
-    .page1-bride-name, .page1-groom-name {
+
+    .page1-bride-name,
+    .page1-groom-name {
         font-size: clamp(1.25rem, 5.2vw, 1.6rem);
     }
+
     .page1-invite-date {
         font-size: clamp(0.74rem, 2.8vw, 0.92rem);
     }
@@ -481,17 +496,20 @@ html, body {
         width: min(90%, 310px);
         top: 50%;
     }
+
     .page1-invited-heading {
         font-size: clamp(1.2rem, 5.2vw, 1.4rem);
         letter-spacing: 1.8px;
         margin-bottom: 0.45rem;
     }
+
     .page1-left-subtext,
     .page1-invite-intro,
     .page1-invite-line4 {
         font-size: clamp(0.95rem, 3.8vw, 1.08rem);
         margin-bottom: 0.35rem;
     }
+
     .page1-invite-line4 {
         margin-bottom: 0;
     }
@@ -503,16 +521,19 @@ html, body {
         width: min(75%, 380px);
         top: 50%;
     }
+
     .page1-invited-heading {
         font-size: 1.95rem;
         margin-bottom: 0.7rem;
     }
+
     .page1-left-subtext,
     .page1-invite-intro,
     .page1-invite-line4 {
         font-size: 1.3rem;
         margin-bottom: 0.5rem;
     }
+
     .page1-invite-line4 {
         margin-bottom: 0;
     }
@@ -546,7 +567,8 @@ html, body {
      * object-fit: contain keeps the entire illustration visible; the matching
      * background colour makes any thin letterbox bars invisible.
      */
-    background: #F0E8E0; /* matches the blush-cream tone of page 21.jpeg */
+    background: #F0E8E0;
+    /* matches the blush-cream tone of page 21.jpeg */
     padding: 0;
     position: relative;
     overflow: hidden;
@@ -661,7 +683,8 @@ html, body {
     gap: 0.1rem;
 }
 
-.page2-bride-name, .page2-groom-name {
+.page2-bride-name,
+.page2-groom-name {
     font-family: var(--font-serif-title);
     font-size: clamp(1.35rem, 4.8vw, 1.95rem);
     color: #621020;
@@ -700,31 +723,38 @@ html, body {
         width: min(88%, 340px);
         padding: 0 0.5rem;
     }
+
     .page2-invitation-sub {
         font-size: clamp(1.08rem, 3.8vw, 1.28rem);
         margin-bottom: 0.3rem;
         line-height: 1.25;
         font-weight: 600;
     }
+
     .page2-parents-text {
         font-size: clamp(0.72rem, 2.5vw, 0.84rem);
         letter-spacing: 1px;
         line-height: 1.45;
         font-weight: 600;
     }
+
     .page2-couple-wrapper {
         margin: 0.35rem 0;
         gap: 0.05rem;
     }
-    .page2-bride-name, .page2-groom-name {
+
+    .page2-bride-name,
+    .page2-groom-name {
         font-size: clamp(1.6rem, 5.8vw, 2.05rem);
         letter-spacing: 2px;
         line-height: 1.15;
     }
+
     .page2-with-text {
         font-size: clamp(1.35rem, 4.6vw, 1.7rem);
         margin: -0.05rem 0;
     }
+
     .page2-footer-text {
         margin-top: 0.25rem;
     }
@@ -736,16 +766,21 @@ html, body {
         top: 52%;
         width: min(90%, 320px);
     }
+
     .page2-invitation-sub {
         font-size: clamp(1rem, 3.4vw, 1.15rem);
     }
+
     .page2-parents-text {
         font-size: clamp(0.68rem, 2.2vw, 0.78rem);
         letter-spacing: 0.8px;
     }
-    .page2-bride-name, .page2-groom-name {
+
+    .page2-bride-name,
+    .page2-groom-name {
         font-size: clamp(1.45rem, 5.2vw, 1.8rem);
     }
+
     .page2-with-text {
         font-size: clamp(1.25rem, 4.2vw, 1.55rem);
     }
@@ -756,12 +791,16 @@ html, body {
     .page2-lower-left-text {
         top: 46%;
     }
-    .page2-bride-name, .page2-groom-name {
+
+    .page2-bride-name,
+    .page2-groom-name {
         font-size: 1.15rem;
     }
+
     .page2-with-text {
         font-size: 0.95rem;
     }
+
     .page2-parents-text {
         font-size: 0.55rem;
     }
@@ -772,16 +811,21 @@ html, body {
     .page2-invitation-sub {
         font-size: clamp(1rem, 2.2vw, 1.25rem);
     }
+
     .page2-lower-left-text {
         top: 53%;
         width: clamp(240px, 55vw, 380px);
     }
-    .page2-bride-name, .page2-groom-name {
+
+    .page2-bride-name,
+    .page2-groom-name {
         font-size: clamp(1.5rem, 4.5vw, 2rem);
     }
+
     .page2-with-text {
         font-size: clamp(1.25rem, 3vw, 1.65rem);
     }
+
     .page2-parents-text {
         font-size: clamp(0.58rem, 1.2vw, 0.72rem);
     }
@@ -828,7 +872,8 @@ html, body {
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    top: 48%; /* Positioned immediately beneath the legs (petals end at ~46.2%) */
+    top: 48%;
+    /* Positioned immediately beneath the legs (petals end at ~46.2%) */
     width: min(85%, 310px);
     display: flex;
     flex-direction: column;
@@ -903,10 +948,12 @@ html, body {
         top: 48%;
         width: min(86%, 295px);
     }
+
     .scratch-card-container {
         max-width: 280px;
         height: 82px;
     }
+
     .page3-save-the-date {
         font-size: 0.88rem;
         margin-top: 0.45rem;
@@ -918,17 +965,21 @@ html, body {
     .page3-scratch-overlay {
         top: 47%;
     }
+
     .page3-announcement-title {
         font-size: 0.88rem;
         margin-bottom: 0.1rem;
     }
+
     .page3-announcement-sub {
         font-size: 0.74rem;
         margin-bottom: 0.3rem;
     }
+
     .scratch-card-container {
         height: 72px;
     }
+
     .page3-save-the-date {
         font-size: 0.8rem;
         margin-top: 0.35rem;
@@ -1037,20 +1088,25 @@ html, body {
 }
 
 /* Page 4 Compact Viewport Adaptation */
-@media (max-height: 700px), (max-width: 400px) {
+@media (max-height: 700px),
+(max-width: 400px) {
     #screen-countdown {
         padding: 1rem 1rem 0.9rem 1rem !important;
     }
+
     .page4-intro-eyebrow {
         font-size: 1rem;
     }
+
     .page4-intro-heading {
         font-size: 1.35rem;
         letter-spacing: 1.5px;
     }
+
     .page4-middle-image-wrapper {
         max-height: 44%;
     }
+
     .page4-bottom-body {
         font-size: 0.95rem;
         line-height: 1.35;
@@ -1078,7 +1134,7 @@ html, body {
     border-radius: 12px;
     padding: 0.75rem 0.5rem;
     min-width: 70px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .countdown-digit {
@@ -1237,22 +1293,28 @@ html, body {
 #screen-baale .event-split-eyebrow {
     color: #C2410C;
 }
+
 #screen-baale .event-split-title {
     color: #9A3412;
     text-shadow: 0 1px 2px rgba(254, 215, 170, 0.6);
 }
+
 #screen-baale .event-split-tagline {
     color: #7C2D12;
 }
+
 #screen-baale .event-split-divider {
     background: linear-gradient(90deg, transparent, #EA580C, transparent);
 }
+
 #screen-baale .event-split-label {
     color: #C2410C;
 }
+
 #screen-baale .event-split-val {
     color: #431407;
 }
+
 #screen-baale .event-split-img {
     border-color: rgba(234, 88, 12, 0.35);
     box-shadow: 0 8px 24px rgba(154, 52, 18, 0.15);
@@ -1262,22 +1324,28 @@ html, body {
 #screen-haldi .event-split-eyebrow {
     color: #92400E;
 }
+
 #screen-haldi .event-split-title {
     color: #78350F;
     text-shadow: 0 1px 2px rgba(254, 243, 199, 0.6);
 }
+
 #screen-haldi .event-split-tagline {
     color: #854D0E;
 }
+
 #screen-haldi .event-split-divider {
     background: linear-gradient(90deg, transparent, #D97706, transparent);
 }
+
 #screen-haldi .event-split-label {
     color: #B45309;
 }
+
 #screen-haldi .event-split-val {
     color: #451A03;
 }
+
 #screen-haldi .event-split-img {
     border-color: rgba(180, 83, 9, 0.35);
     box-shadow: 0 8px 24px rgba(120, 53, 15, 0.15);
@@ -1287,22 +1355,28 @@ html, body {
 #screen-mehendi .event-split-eyebrow {
     color: #3F6212;
 }
+
 #screen-mehendi .event-split-title {
     color: #2E500A;
     text-shadow: 0 1px 2px rgba(213, 232, 179, 0.6);
 }
+
 #screen-mehendi .event-split-tagline {
     color: #365314;
 }
+
 #screen-mehendi .event-split-divider {
     background: linear-gradient(90deg, transparent, #65A30D, transparent);
 }
+
 #screen-mehendi .event-split-label {
     color: #4D7C0F;
 }
+
 #screen-mehendi .event-split-val {
     color: #14350A;
 }
+
 #screen-mehendi .event-split-img {
     border-color: rgba(101, 163, 13, 0.35);
     box-shadow: 0 8px 24px rgba(46, 80, 10, 0.15);
@@ -1312,22 +1386,28 @@ html, body {
 #screen-sangeet .event-split-eyebrow {
     color: #FACC15;
 }
+
 #screen-sangeet .event-split-title {
     color: #FDE047;
     text-shadow: 0 0 20px rgba(253, 224, 71, 0.35);
 }
+
 #screen-sangeet .event-split-tagline {
     color: #FEF9C3;
 }
+
 #screen-sangeet .event-split-divider {
     background: linear-gradient(90deg, transparent, #FDE047, transparent);
 }
+
 #screen-sangeet .event-split-label {
     color: #FACC15;
 }
+
 #screen-sangeet .event-split-val {
     color: #FFFFFF;
 }
+
 #screen-sangeet .event-split-img {
     border-color: rgba(253, 224, 71, 0.4);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
@@ -1337,46 +1417,58 @@ html, body {
 #screen-reception .event-split-eyebrow {
     color: #F472B6;
 }
+
 #screen-reception .event-split-title {
     color: #FBCFE8;
     text-shadow: 0 0 20px rgba(244, 114, 182, 0.35);
 }
+
 #screen-reception .event-split-tagline {
     color: #FDF2F8;
 }
+
 #screen-reception .event-split-divider {
     background: linear-gradient(90deg, transparent, #F472B6, transparent);
 }
+
 #screen-reception .event-split-label {
     color: #F472B6;
 }
+
 #screen-reception .event-split-val {
     color: #FFFFFF;
 }
+
 #screen-reception .event-split-img {
     border-color: rgba(244, 114, 182, 0.4);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
 }
 
 /* Compact viewport adaptation: ensures zero scrolling on shorter screens */
-@media (max-height: 700px), (max-width: 400px) {
+@media (max-height: 700px),
+(max-width: 400px) {
     .event-split-screen {
         padding: 1rem 0.9rem 0.8rem 0.9rem !important;
     }
+
     .event-split-title {
         font-size: 2.6rem;
         margin: 0.05rem 0 0.15rem 0;
     }
+
     .event-split-tagline {
         font-size: 0.85rem;
         line-height: 1.2;
     }
+
     .event-split-divider {
         margin: 0.25rem auto;
     }
+
     .event-split-details {
         gap: 0.25rem;
     }
+
     .event-split-val {
         font-size: 0.96rem;
     }
@@ -1445,7 +1537,7 @@ html, body {
     color: var(--color-gold-dark);
     font-weight: 600;
     margin-bottom: 0.1rem;
-    text-shadow: 0 1px 4px rgba(255,255,255,0.9), 0 1px 8px rgba(0,0,0,0.3);
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.9), 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
 .muhurtham-title {
@@ -1454,7 +1546,7 @@ html, body {
     line-height: 1.05;
     color: var(--color-maroon);
     margin: 0.1rem 0 0.2rem 0;
-    text-shadow: 0 2px 8px rgba(255,255,255,0.95), 0 1px 12px rgba(0,0,0,0.2);
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.95), 0 1px 12px rgba(0, 0, 0, 0.2);
 }
 
 .muhurtham-divider {
@@ -1485,7 +1577,7 @@ html, body {
     text-transform: uppercase;
     font-weight: 600;
     color: #8C6D23;
-    text-shadow: 0 1px 4px rgba(255,255,255,0.9);
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.9);
 }
 
 .muhurtham-val {
@@ -1494,20 +1586,24 @@ html, body {
     font-weight: 600;
     color: var(--color-maroon);
     line-height: 1.25;
-    text-shadow: 0 1px 6px rgba(255,255,255,0.9), 0 1px 4px rgba(0,0,0,0.15);
+    text-shadow: 0 1px 6px rgba(255, 255, 255, 0.9), 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
-@media (max-height: 700px), (max-width: 400px) {
+@media (max-height: 700px),
+(max-width: 400px) {
     .muhurtham-middle-box {
         padding: 0.9rem 1.1rem;
         max-width: 290px;
     }
+
     .muhurtham-title {
         font-size: 2.3rem;
     }
+
     .muhurtham-details {
         gap: 0.3rem;
     }
+
     .muhurtham-val {
         font-size: 0.95rem;
     }
@@ -1597,19 +1693,24 @@ html, body {
     text-align: center;
 }
 
-@media (max-height: 700px), (max-width: 400px) {
+@media (max-height: 700px),
+(max-width: 400px) {
     .families-content-overlay {
         padding: 1.2rem 1rem;
     }
+
     .families-heading {
         font-size: 2.2rem;
     }
+
     .families-sub {
         font-size: 0.9rem;
     }
+
     .families-subheading {
         font-size: 1.9rem;
     }
+
     .family-box {
         margin: 0.35rem 0;
         padding: 0.65rem 1rem;
@@ -1643,7 +1744,7 @@ html, body {
     border-radius: 12px;
     overflow: hidden;
     border: 2px solid var(--color-gold);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     margin: 0.5rem 0;
     background: #FFFDF9;
     position: relative;
@@ -1738,32 +1839,38 @@ html, body {
         justify-content: center !important;
         gap: 0.35rem;
     }
+
     #screen-venue .script-heading {
         font-size: 1.85rem;
         margin-bottom: 0.1rem;
         line-height: 1.15;
     }
+
     #venue-name {
         font-size: 0.95rem;
         margin-top: 0.15rem;
         letter-spacing: 1.5px;
     }
+
     #venue-address {
         font-size: 0.78rem;
         line-height: 1.3;
         max-width: 290px;
     }
+
     .map-embed-container {
         height: 125px;
         max-width: 320px;
         margin: 0.25rem 0;
         border-radius: 10px;
     }
+
     #get-directions-btn {
         padding: 0.46rem 1.4rem;
         font-size: 0.82rem;
         margin: 0.15rem 0;
     }
+
     .travel-note-card {
         padding: 0.55rem 0.85rem;
         max-width: 350px;
@@ -1771,72 +1878,89 @@ html, body {
         margin: 0.15rem auto 0 auto;
         border-radius: 10px;
     }
+
     .travel-note-title {
         font-size: 0.88rem;
         margin-bottom: 0.15rem;
     }
+
     .travel-note-desc {
         font-size: 0.76rem;
         line-height: 1.3;
         margin-bottom: 0.25rem;
     }
+
     .travel-note-details {
         margin: 0.2rem 0;
         padding: 0.2rem 0;
     }
+
     .travel-note-row {
         font-size: 0.72rem;
         line-height: 1.3;
         margin: 0.1rem 0;
     }
+
     .travel-note-closing {
         font-size: 0.76rem;
         margin-top: 0.18rem;
     }
 }
 
-@media (max-width: 360px), (max-height: 660px) {
+@media (max-width: 360px),
+(max-height: 660px) {
     #screen-venue {
         padding: 0.7rem 0.75rem 0.5rem 0.75rem !important;
         gap: 0.2rem;
     }
+
     #screen-venue .script-heading {
         font-size: 1.6rem;
     }
+
     #screen-venue .serif-title {
         font-size: 0.85rem;
     }
+
     #screen-venue .serif-sub {
         font-size: 0.7rem;
     }
+
     .map-embed-container {
         height: 100px;
         max-width: 270px;
         margin: 0.15rem 0;
     }
+
     #get-directions-btn {
         padding: 0.4rem 1.15rem;
         font-size: 0.76rem;
     }
+
     .travel-note-card {
         padding: 0.42rem 0.7rem;
         max-width: 300px;
     }
+
     .travel-note-title {
         font-size: 0.8rem;
     }
+
     .travel-note-desc {
         font-size: 0.7rem;
         line-height: 1.22;
     }
+
     .travel-note-details {
         margin: 0.15rem 0;
         padding: 0.15rem 0;
     }
+
     .travel-note-row {
         font-size: 0.66rem;
         margin: 0.08rem 0;
     }
+
     .travel-note-closing {
         font-size: 0.7rem;
         margin-top: 0.1rem;
@@ -1912,7 +2036,8 @@ html, body {
     font-style: italic;
     font-size: clamp(1.35rem, 4.4vw, 1.75rem);
     font-weight: 500;
-    color: #8C3A4D; /* Dusty rose / soft rosewood */
+    color: #8C3A4D;
+    /* Dusty rose / soft rosewood */
     letter-spacing: 0.5px;
     line-height: 1.25;
     margin: 0;
@@ -1934,7 +2059,8 @@ html, body {
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 2.2px;
-    color: #7A3B49; /* Deep muted rose */
+    color: #7A3B49;
+    /* Deep muted rose */
     line-height: 1.4;
     margin: 0 0 0.65rem 0;
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
@@ -1945,7 +2071,8 @@ html, body {
     font-family: var(--font-script-primary);
     font-size: clamp(2.4rem, 7.8vw, 3.3rem);
     font-weight: 500;
-    color: #550A17; /* Deep maroon contrast */
+    color: #550A17;
+    /* Deep maroon contrast */
     line-height: 1.15;
     letter-spacing: 0.5px;
     margin: 0;
@@ -1959,22 +2086,27 @@ html, body {
         padding: 2.2rem 1.4rem;
         width: 88%;
     }
+
     .closing-corner-botanical {
         width: 48px;
         height: 48px;
     }
+
     .closing-with-love {
         font-size: clamp(1.2rem, 4.4vw, 1.45rem);
     }
+
     .closing-divider-accent {
         width: 45px;
         margin: 0.35rem auto 0.55rem auto;
     }
+
     .closing-credit {
         font-size: clamp(0.64rem, 2.1vw, 0.74rem);
         letter-spacing: 1.8px;
         margin-bottom: 0.55rem;
     }
+
     .closing-name {
         font-size: clamp(2.1rem, 7.6vw, 2.7rem);
     }
@@ -1984,10 +2116,12 @@ html, body {
     .closing-signature-card {
         padding: 1.6rem 1.2rem;
     }
+
     .closing-corner-botanical {
         width: 38px;
         height: 38px;
     }
+
     .closing-name {
         font-size: 2rem;
     }
@@ -1999,12 +2133,30 @@ html, body {
 
 /* Mobile Phones (360px to 480px) */
 @media (max-width: 480px) {
-    .script-heading { font-size: 2.5rem; }
-    .couple-name-main { font-size: 2.8rem; }
-    .palace-artwork-container { height: 150px; }
-    .countdown-grid { gap: 8px; }
-    .countdown-box { min-width: 60px; padding: 0.5rem 0.3rem; }
-    .countdown-digit { font-size: 1.5rem; }
+    .script-heading {
+        font-size: 2.5rem;
+    }
+
+    .couple-name-main {
+        font-size: 2.8rem;
+    }
+
+    .palace-artwork-container {
+        height: 150px;
+    }
+
+    .countdown-grid {
+        gap: 8px;
+    }
+
+    .countdown-box {
+        min-width: 60px;
+        padding: 0.5rem 0.3rem;
+    }
+
+    .countdown-digit {
+        font-size: 1.5rem;
+    }
 
     /* Page 1 & 2 Mobile — see page-specific blocks above */
 }
@@ -2016,6 +2168,6 @@ html, body {
         margin: 0 auto;
         border-left: 1px solid rgba(212, 175, 55, 0.2);
         border-right: 1px solid rgba(212, 175, 55, 0.2);
-        box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
     }
 }
