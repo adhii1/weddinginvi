@@ -418,23 +418,56 @@ html, body {
         width: min(68%, 250px);
         max-height: 80vh;
         top: 40%;
+        gap: 0;
     }
     .page1-bride-name, .page1-groom-name { font-size: 1.05rem; }
     .page1-ampersand                     { font-size: 0.95rem; }
-    .page1-left-subtext                  { margin-bottom: 0.18rem; }
-    .page1-invite-sub                    { margin-bottom: 0.24rem; }
-    .page1-invite-date                   { margin-top: 0.22rem; }
+    .page1-left-subtext                  { margin-bottom: 0.12rem; }
+    .page1-invite-sub                    { margin-bottom: 0.18rem; }
+    .page1-invite-date                   { margin-top: 0.18rem; }
+    .page1-invited-heading               { font-size: 0.68rem; margin-bottom: 0.28rem; }
+    .page1-left-subtext,
+    .page1-invite-intro,
+    .page1-invite-line4                  { font-size: 0.75rem; }
+}
+
+/* Portrait mobile phones (≤ 480px wide) — improve readability */
+@media (max-width: 480px) {
+    .page1-text-overlay {
+        width: min(78%, 270px);
+        top: 39%;
+    }
+    .page1-invited-heading {
+        font-size: clamp(0.82rem, 3.2vw, 1rem);
+        letter-spacing: 2.5px;
+        margin-bottom: 0.38rem;
+    }
+    .page1-left-subtext,
+    .page1-invite-intro,
+    .page1-invite-line4 {
+        font-size: clamp(0.88rem, 3vw, 1.05rem);
+        margin-bottom: 0.32rem;
+    }
+    .page1-bride-name, .page1-groom-name {
+        font-size: clamp(1.2rem, 5vw, 1.55rem);
+    }
+    .page1-invite-date {
+        font-size: clamp(0.72rem, 2.8vw, 0.9rem);
+    }
 }
 
 /* Narrow mobile (≤ 360px wide) */
 @media (max-width: 360px) {
     .page1-text-overlay {
-        width: min(72%, 230px);
-        top: 40%;
+        width: min(78%, 240px);
+        top: 39%;
     }
-    .page1-bride-name, .page1-groom-name { font-size: 1.1rem; letter-spacing: 1.5px; }
-    .page1-title { font-size: 0.58rem; letter-spacing: 2.5px; }
-    .page1-invited-heading { font-size: 0.54rem; letter-spacing: 2px; }
+    .page1-bride-name, .page1-groom-name { font-size: 1.15rem; letter-spacing: 1.5px; }
+    .page1-title { font-size: 0.6rem; letter-spacing: 2.5px; }
+    .page1-invited-heading { font-size: 0.78rem; letter-spacing: 2px; }
+    .page1-left-subtext,
+    .page1-invite-intro,
+    .page1-invite-line4 { font-size: 0.82rem; }
 }
 
 /* Wide desktop — keep horizontally centered and properly balanced within the red panel */
@@ -620,14 +653,37 @@ html, body {
     text-align: center;
 }
 
+/* ── Responsive: portrait phones (≤ 480px wide) ── */
+@media (max-width: 480px) {
+    .page2-invitation-sub {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        margin-bottom: 0.25rem;
+    }
+    .page2-lower-left-text {
+        top: 54%;
+        width: clamp(200px, 82vw, 310px);
+    }
+    .page2-bride-name, .page2-groom-name {
+        font-size: clamp(1.3rem, 5vw, 1.65rem);
+    }
+    .page2-with-text {
+        font-size: clamp(1.1rem, 3.6vw, 1.4rem);
+    }
+    .page2-parents-text {
+        font-size: clamp(0.54rem, 1.8vw, 0.68rem);
+        letter-spacing: 0.9px;
+        line-height: 1.4;
+    }
+}
+
 /* ── Responsive: narrow portrait phones (≤ 390px wide) ── */
 @media (max-width: 390px) {
     .page2-invitation-sub {
         font-size: clamp(0.85rem, 2.8vw, 1rem);
     }
     .page2-lower-left-text {
-        top: 52%;
-        width: clamp(190px, 80vw, 300px);
+        top: 53%;
+        width: clamp(185px, 84vw, 300px);
     }
     .page2-bride-name, .page2-groom-name {
         font-size: clamp(1.2rem, 4.8vw, 1.55rem);
@@ -644,7 +700,7 @@ html, body {
 /* ── Responsive: very short viewports (landscape phones) ── */
 @media (max-height: 500px) {
     .page2-lower-left-text {
-        top: 48%;
+        top: 46%;
     }
     .page2-bride-name, .page2-groom-name {
         font-size: 1.15rem;
@@ -700,8 +756,20 @@ html, body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center top;
     display: block;
+}
+
+/* On narrow portrait phones, switch to contain so the artwork isn't cropped */
+@media (max-width: 480px) and (orientation: portrait) {
+    .page3-bg-img {
+        object-fit: contain;
+        object-position: center top;
+        background-color: #FFF9F5;
+    }
+    #screen-scratch {
+        background: #FFF9F5;
+    }
 }
 
 /* Page 3 Content Overlay — sits above the background image, pushes scratch to bottom */
@@ -1453,10 +1521,27 @@ html, body {
     min-height: 100dvh !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
+    /* Disengage scroll-snap for this screen so the inner content is fully scrollable */
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
+}
+
+/* On mobile, reduce map height slightly and tighten spacing so footer is reachable */
+@media (max-width: 480px) {
+    .map-embed-container {
+        height: 180px;
+        margin: 0.65rem 0;
+    }
+    .creator-personal-signature {
+        margin: 0.5rem auto 0.9rem auto;
+    }
+    .dark-footer-section {
+        padding: 1.5rem 1rem;
+    }
 }
 
 .map-embed-container {
@@ -1632,14 +1717,7 @@ html, body {
     .countdown-box { min-width: 60px; padding: 0.5rem 0.3rem; }
     .countdown-digit { font-size: 1.5rem; }
 
-    /* Page 1 Mobile — handled by clamp() + @media in the page1 block above */
-
-    /* Page 2 Mobile */
-    .page2-lower-left-text { left: 0; right: 0; margin-left: auto; margin-right: auto; top: 57%; width: clamp(200px, 80vw, 320px); }
-    .page2-invitation-sub { font-size: 0.95rem; }
-    .page2-bride-name, .page2-groom-name { font-size: 1.35rem; }
-    .page2-with-text { font-size: 1.15rem; }
-    .page2-parents-text { font-size: 0.55rem; letter-spacing: 0.8px; }
+    /* Page 1 & 2 Mobile — see page-specific blocks above */
 }
 
 /* Tablets & Laptops */
