@@ -45,13 +45,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. Handle Google Maps directions button
+    // 7. Handle Google Maps directions button & Alila Meadows venue links
+    const alilaMeadowsMapsUrl = window.weddingDetails?.venue?.mapsUrl || "https://www.google.com/maps?q=Alila+Meadows,+19/5,+Bilijaji,+Hesaraghatta,+Bengaluru,+Karnataka+560088&ftid=0x3bae23007780365b:0x9bb463de8255f9cc&entry=gps&shh=CAE&lucs=,94297699,100826475,94231188,94280568,100821559,47071704,94218641,94282134,94286869,100820247,100822504&g_ep=CAISEjI2LjMzLjEuOTYxODkxNDMyMBgAIIgnKmcsOTQyOTc2OTksMTAwODI2NDc1LDk0MjMxMTg4LDk0MjgwNTY4LDEwMDgyMTU1OSw0NzA3MTcwNCw5NDIxODY0MSw5NDI4MjEzNCw5NDI4Njg2OSwxMDA4MjAyNDcsMTAwODIyNTA0QgJJTg%3D%3D&skid=0ed668c7-2845-4617-ba2a-625ae33ab2d4&g_st=iw";
+
+    function openAlilaDirections() {
+        const mapsUrl = window.weddingDetails?.venue?.mapsUrl || alilaMeadowsMapsUrl;
+        window.open(mapsUrl, '_blank');
+    }
+
     const directionsBtn = document.getElementById('get-directions-btn');
     if (directionsBtn) {
-        directionsBtn.addEventListener('click', () => {
-            const mapsUrl = window.weddingDetails?.pickupLocation?.mapsUrl || "https://maps.google.com/?q=Green+Rich+Enclave,+HBR+Layout";
-            window.open(mapsUrl, '_blank');
-        });
+        directionsBtn.addEventListener('click', openAlilaDirections);
+    }
+
+    // Alila Meadows location text: open directions to Alila Meadows when clicked
+    const venueNameEl = document.getElementById('venue-name');
+    if (venueNameEl) {
+        venueNameEl.style.cursor = 'pointer';
+        venueNameEl.title = 'Open directions to Alila Meadows on Google Maps';
+        venueNameEl.addEventListener('click', openAlilaDirections);
+    }
+
+    const venueAddressEl = document.getElementById('venue-address');
+    if (venueAddressEl) {
+        venueAddressEl.style.cursor = 'pointer';
+        venueAddressEl.title = 'Open directions to Alila Meadows on Google Maps';
+        venueAddressEl.addEventListener('click', openAlilaDirections);
     }
 
     // 8. Initialize Floating 3D Event Flip Cards
@@ -106,6 +125,12 @@ function injectConfigData() {
     if (details.venue) {
         setText('#venue-name', details.venue.name);
         setText('#venue-address', details.venue.fullAddress);
+        if (details.venue.mapsUrl) {
+            const mapLink = document.querySelector('.map-illustration-link');
+            if (mapLink) {
+                mapLink.setAttribute('href', details.venue.mapsUrl);
+            }
+        }
     }
 }
 
