@@ -1,0 +1,807 @@
+/* ==========================================================================
+   WEDDING EVENTS — ONE EVENT PER FULL-SCREEN PAGE WITH 3D FLIP CARDS
+   Luxury Indian Wedding Invitation Editorial Design
+   ========================================================================== */
+
+/* ── 1. Individual Event Page Screen Container ── */
+.invitation-screen.event-page-screen {
+    min-height: 100vh !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: clamp(0.75rem, 2vh, 1.4rem) clamp(1rem, 3vw, 2rem) clamp(0.85rem, 2.2vh, 1.6rem) clamp(1rem, 3vw, 2rem) !important;
+    box-sizing: border-box !important;
+    color: #FFF9EE !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    transition: background 0.6s ease;
+}
+
+/* Fallback for ultra-compact screen heights */
+@media (max-height: 560px) {
+    .invitation-screen.event-page-screen {
+        height: auto !important;
+        min-height: 100vh !important;
+        overflow-y: auto !important;
+    }
+}
+
+/* Subtle ambient gold illumination behind card */
+.invitation-screen.event-page-screen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 68%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── 2. Ambient Theme Backgrounds for Each Event Page ── */
+.event-page-screen.event-theme-haldi {
+    background: radial-gradient(ellipse at 50% 25%, #422006 0%, #291202 55%, #120700 100%) !important;
+}
+
+.event-page-screen.event-theme-mehendi {
+    background: radial-gradient(ellipse at 50% 25%, #0F3316 0%, #081F0D 55%, #030E06 100%) !important;
+}
+
+.event-page-screen.event-theme-pelikuthru,
+.event-page-screen.event-theme-baale {
+    background: radial-gradient(ellipse at 50% 25%, #3E0B19 0%, #25040D 55%, #120106 100%) !important;
+}
+
+.event-page-screen.event-theme-bangle {
+    background: radial-gradient(ellipse at 50% 25%, #38120B 0%, #220804 55%, #0E0201 100%) !important;
+}
+
+.event-page-screen.event-theme-jodihaldi {
+    background: radial-gradient(ellipse at 50% 25%, #3D0A14 0%, #24050D 55%, #120206 100%) !important;
+}
+
+.event-page-screen.event-theme-sangeeth,
+.event-page-screen.event-theme-sangeet {
+    background: radial-gradient(ellipse at 50% 25%, #0D2244 0%, #07152B 55%, #020712 100%) !important;
+}
+
+.event-page-screen.event-theme-reception {
+    background: radial-gradient(ellipse at 50% 25%, #0B2F23 0%, #061C15 55%, #020D0A 100%) !important;
+}
+
+.event-page-screen.event-theme-muhurtham {
+    background: radial-gradient(ellipse at 50% 25%, #460A16 0%, #27040B 55%, #120104 100%) !important;
+}
+
+/* ── 3. Event Page Header ── */
+.event-page-header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.2rem;
+    flex-shrink: 0;
+}
+
+.event-page-header .events-eyebrow {
+    font-family: var(--font-sans);
+    font-size: clamp(0.62rem, 1.6vw, 0.74rem);
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    font-weight: 600;
+    margin: 0;
+}
+
+.event-page-header .events-divider {
+    width: 50px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+    margin: 0.35rem auto 0 auto;
+}
+
+/* ── 4. The Floating 3D Flip Card (Centered on Page) ── */
+.event-flip-card {
+    position: relative;
+    z-index: 2;
+    width: clamp(280px, 82vw, 336px);
+    height: clamp(450px, 65vh, 540px);
+    max-height: calc(100dvh - 140px);
+    aspect-ratio: 9 / 14.7;
+    perspective: 1400px;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 20px;
+    margin: auto 0 0 0;
+    flex-shrink: 0;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease;
+    filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.55));
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .event-flip-card:hover {
+        transform: translateY(-6px);
+        filter: drop-shadow(0 26px 48px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 20px rgba(212, 175, 55, 0.32));
+    }
+}
+
+.event-flip-card:focus-visible {
+    box-shadow: 0 0 0 3px var(--color-gold);
+}
+
+/* ── 5. 3D Flipper Engine ── */
+.event-flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 20px;
+}
+
+/* Flipped state */
+.event-flip-card.is-flipped .event-flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* ── 6. Front Face: Image with Event Name Overlay ── */
+.event-card-front {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgba(229, 195, 88, 0.75);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.25),
+        0 8px 24px rgba(0, 0, 0, 0.45);
+    background: #150206;
+}
+
+/* Theme backgrounds matching each artwork for seamless framing */
+.event-theme-haldi .event-card-front { background: #FDF8EE; }
+.event-theme-mehendi .event-card-front { background: #F6F1E6; }
+.event-theme-pelikuthru .event-card-front,
+.event-theme-baale .event-card-front { background: #2A0610; }
+.event-theme-bangle .event-card-front { background: #FDF0E6; }
+.event-theme-jodihaldi .event-card-front { background: #FFF8EE; }
+.event-theme-sangeeth .event-card-front,
+.event-theme-sangeet .event-card-front { background: #180816; }
+.event-theme-reception .event-card-front { background: #03130E; }
+.event-theme-muhurtham .event-card-front { background: #E6E4E1; }
+
+.event-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+/* Fine-tuned composition framing — showing full details without aggressive cropping */
+.event-theme-haldi .event-card-img {
+    object-fit: cover;
+    object-position: center 60%;
+}
+
+.event-theme-mehendi .event-card-img {
+    object-fit: cover;
+    object-position: center 65%;
+}
+
+.event-theme-pelikuthru .event-card-img,
+.event-theme-baale .event-card-img {
+    object-fit: cover;
+    object-position: center 46%;
+}
+
+.event-theme-bangle .event-card-img {
+    object-fit: cover;
+    object-position: center 60%;
+}
+
+.event-theme-jodihaldi .event-card-img {
+    object-fit: cover;
+    object-position: center 60%;
+}
+
+.event-theme-sangeeth .event-card-img,
+.event-theme-sangeet .event-card-img {
+    object-fit: cover;
+    object-position: center center;
+}
+
+.event-theme-reception .event-card-img {
+    object-fit: cover;
+    object-position: center center;
+}
+
+/* Muhurtham: Full composition visible without crop (divine hands at top + couple at bottom) */
+.event-theme-muhurtham .event-card-img {
+    object-fit: contain;
+    object-position: center center;
+    background-color: #E6E4E1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .event-flip-card:hover .event-card-img {
+        transform: scale(1.02);
+    }
+}
+
+/* ── 7. Event Name Placed Directly on Front Image (Visually & Horizontally Centered) ── */
+.event-card-title-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 4;
+    pointer-events: none;
+    box-sizing: border-box;
+    padding: 0 1rem;
+    transform: translateY(-50%);
+}
+
+.event-card-title-text {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.4rem, 4.2vw, 1.85rem);
+    font-weight: 700;
+    letter-spacing: clamp(3px, 0.8vw, 5.5px);
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.15;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Individual Image-Specific Vertical Placement in Natural Clean Space */
+
+/* 1. HALDI — Centered in pristine temple archway above couple */
+.event-title-haldi {
+    top: 35%;
+}
+.event-title-haldi .event-card-title-text {
+    color: #6D2008;
+    text-shadow:
+        0 1px 2px rgba(255, 255, 255, 0.95),
+        0 2px 8px rgba(180, 83, 9, 0.28),
+        0 0 12px rgba(255, 255, 255, 0.8);
+}
+
+/* 2. MEHENDI — Centered in wide parchment negative space between umbrella & palm trees */
+.event-title-mehendi {
+    top: 34%;
+}
+.event-title-mehendi .event-card-title-text {
+    color: #1F3E14;
+    text-shadow:
+        0 1px 2px rgba(255, 255, 255, 0.95),
+        0 2px 8px rgba(34, 100, 38, 0.28),
+        0 0 12px rgba(255, 255, 255, 0.8);
+}
+
+/* 3. PELIKUTHRU — Centered in rich crimson silk negative space */
+.event-title-pelikuthru,
+.event-title-baale {
+    top: 42%;
+}
+.event-title-pelikuthru .event-card-title-text,
+.event-title-baale .event-card-title-text {
+    color: #FFF2CE;
+    text-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.85),
+        0 4px 18px rgba(0, 0, 0, 0.7),
+        0 0 20px rgba(212, 175, 55, 0.45);
+}
+
+/* 4. BANGLE CEREMONY — Positioned in warm ambient wall space above bangles */
+.event-title-bangle {
+    top: 25%;
+}
+.event-title-bangle .event-card-title-text {
+    color: #5A0815;
+    font-size: clamp(1.2rem, 3.6vw, 1.6rem);
+    letter-spacing: clamp(2.5px, 0.6vw, 4px);
+    text-shadow:
+        0 1px 2px rgba(255, 255, 255, 0.95),
+        0 2px 8px rgba(255, 255, 255, 0.75),
+        0 0 14px rgba(255, 255, 255, 0.6);
+}
+
+/* 5. JODI HALDI — Centered in golden archway above happy couple */
+.event-title-jodihaldi {
+    top: 35%;
+}
+.event-title-jodihaldi .event-card-title-text {
+    color: #5A0815;
+    text-shadow:
+        0 1px 2px rgba(255, 255, 255, 0.95),
+        0 2px 8px rgba(140, 29, 47, 0.4),
+        0 0 14px rgba(255, 255, 255, 0.85);
+}
+
+/* 6. SANGEETH — Centered in deep rose palace alcove wall under chandelier */
+.event-title-sangeeth,
+.event-title-sangeet {
+    top: 51%;
+}
+.event-title-sangeeth .event-card-title-text,
+.event-title-sangeet .event-card-title-text {
+    color: #FFF3D4;
+    text-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.85),
+        0 4px 22px rgba(0, 0, 0, 0.7),
+        0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+/* 7. RECEPTION — Centered in vast midnight ballroom wall */
+.event-title-reception {
+    top: 48%;
+}
+.event-title-reception .event-card-title-text {
+    color: #FFEBB8;
+    text-shadow:
+        0 3px 14px rgba(0, 0, 0, 0.95),
+        0 5px 26px rgba(0, 0, 0, 0.8),
+        0 0 22px rgba(212, 175, 55, 0.55);
+}
+
+/* 8. MUHURTHAM — Centered in serene parchment negative space */
+.event-title-muhurtham {
+    top: 64%;
+}
+.event-title-muhurtham .event-card-title-text {
+    color: #620D1A;
+    font-size: clamp(1.35rem, 3.8vw, 1.75rem);
+    letter-spacing: clamp(3px, 0.8vw, 5px);
+    text-shadow:
+        0 1px 2px rgba(255, 255, 255, 0.98),
+        0 2px 8px rgba(255, 255, 255, 0.85),
+        0 0 16px rgba(212, 175, 55, 0.35);
+}
+
+/* ── 8. "Touch to flip" Hint Positioned Below the Card ── */
+.event-flip-hint {
+    position: relative;
+    z-index: 3;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(0.82rem, 2.2vw, 0.94rem);
+    letter-spacing: 2px;
+    color: rgba(255, 245, 230, 0.62);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    margin: 0.45rem 0 auto 0;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    flex-shrink: 0;
+}
+
+/* Disappears smoothly when card is flipped */
+.event-flip-card.is-flipped + .event-flip-hint {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4px);
+    pointer-events: none;
+}
+
+/* ── 9. Back Face: Luxury Wedding Invitation Details ── */
+.event-card-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(150deg, #FFFDF9 0%, #FFF7ED 45%, #FBF0DE 100%);
+    border: 2px solid #D4AF37;
+    box-shadow:
+        0 14px 40px rgba(0, 0, 0, 0.5),
+        inset 0 0 25px rgba(212, 175, 55, 0.14);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Traditional Gold Inset Dashed Border */
+.event-card-back-decor {
+    position: absolute;
+    inset: 8px;
+    border: 1px dashed rgba(184, 134, 11, 0.45);
+    border-radius: 14px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.event-card-back-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: clamp(14px, 2.8vh, 22px) clamp(16px, 3.2vw, 24px);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Back Face Typography */
+.event-back-auspicious {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: #B8860B;
+    margin-bottom: 2px;
+}
+
+.event-back-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8C2A3C;
+    font-weight: 600;
+}
+
+.event-back-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.3rem, 3.4vw, 1.65rem);
+    color: #5A0815;
+    margin: 0.1rem 0;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.event-back-divider {
+    width: 48px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    margin: 0.2rem auto 0.35rem auto;
+}
+
+.event-back-info-block {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.32rem, 1vh, 0.52rem);
+    width: 100%;
+    margin: 0.15rem 0;
+}
+
+.event-back-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+}
+
+.event-back-label {
+    font-family: var(--font-sans);
+    font-size: 0.52rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #9A7B1C;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+.event-back-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.92rem, 2vw, 1.05rem);
+    font-weight: 600;
+    color: #3A050D;
+    line-height: 1.25;
+}
+
+.event-back-subval {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.72rem, 1.8vw, 0.82rem);
+    font-weight: 500;
+    color: #5C3D22;
+    line-height: 1.25;
+    max-width: 250px;
+    margin: 1px auto 0 auto;
+}
+
+/* ── 10. Dress Colour Block with Visual Swatch ── */
+.event-dress-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-top: 3px;
+}
+
+.event-dress-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(212, 175, 55, 0.14);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.event-dress-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1.5px #D4AF37, 0 1px 3px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.event-dress-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #4A0E1A;
+    letter-spacing: 0.3px;
+}
+
+.event-back-divider-sub {
+    width: 35px;
+    height: 1px;
+    background: rgba(212, 175, 55, 0.4);
+    margin: 0.15rem auto;
+}
+
+.event-back-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.82rem;
+    line-height: 1.25;
+    color: #6D4C41;
+    max-width: 260px;
+    margin: 0 auto;
+}
+
+.event-back-flip-return {
+    font-family: var(--font-sans);
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #9A7B1C;
+    font-weight: 600;
+    margin-top: 4px;
+    display: inline-block;
+    opacity: 0.85;
+}
+
+/* ── 11. Individual Event Theme Accents on Card Back ── */
+.event-theme-haldi .event-back-title { color: #78350F; }
+.event-theme-haldi .event-back-eyebrow { color: #B45309; }
+
+.event-theme-mehendi .event-back-title { color: #2E500A; }
+.event-theme-mehendi .event-back-eyebrow { color: #3F6212; }
+
+.event-theme-pelikuthru .event-back-title,
+.event-theme-baale .event-back-title { color: #8A2518; }
+.event-theme-pelikuthru .event-back-eyebrow,
+.event-theme-baale .event-back-eyebrow { color: #C2410C; }
+
+.event-theme-bangle .event-back-title { color: #7B1A28; }
+.event-theme-bangle .event-back-eyebrow { color: #A82234; }
+
+.event-theme-jodihaldi .event-back-title { color: #5A0815; }
+.event-theme-jodihaldi .event-back-eyebrow { color: #8C1D2F; }
+
+.event-theme-sangeeth .event-back-title,
+.event-theme-sangeet .event-back-title { color: #1E293B; }
+.event-theme-sangeeth .event-back-eyebrow,
+.event-theme-sangeet .event-back-eyebrow { color: #1E3A8A; }
+
+.event-theme-reception .event-back-title { color: #0F4C3A; }
+.event-theme-reception .event-back-eyebrow { color: #065F46; }
+
+.event-theme-muhurtham .event-back-title { color: #621020; }
+.event-theme-muhurtham .event-back-eyebrow { color: #8C2234; }
+
+/* ── 12. Navigation Between Event Pages (Book Navigation) ── */
+.event-page-nav {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: clamp(290px, 86vw, 360px);
+    padding: 0.2rem 0;
+    flex-shrink: 0;
+    margin-bottom: 0.2rem;
+}
+
+.event-nav-prev,
+.event-nav-next {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.72rem, 2vw, 0.82rem);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #FFF3D4;
+    text-decoration: none;
+    padding: 0.42rem 1rem;
+    border-radius: 25px;
+    background: rgba(28, 4, 9, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.55);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.event-nav-prev:hover,
+.event-nav-next:hover {
+    color: #FFFDE7;
+    background: rgba(212, 175, 55, 0.25);
+    border-color: #E5C358;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+}
+
+.event-nav-prev:active,
+.event-nav-next:active {
+    transform: translateY(0);
+}
+
+.event-nav-placeholder {
+    display: inline-block;
+    width: 70px;
+}
+
+.event-theme-jodihaldi .event-card-front {
+    background: #FFF8EE;
+    border-color: rgba(212, 175, 55, 0.75);
+}
+
+.event-theme-jodihaldi .event-card-back {
+    background: linear-gradient(150deg, #FFFDF9 0%, #FFF5ED 45%, #FAECE3 100%);
+    border: 2px solid #8C1D2F;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), inset 0 0 25px rgba(212, 175, 55, 0.2);
+}
+
+.event-theme-jodihaldi .event-card-back-decor {
+    border-color: rgba(212, 175, 55, 0.55);
+}
+
+.event-theme-jodihaldi .event-back-auspicious {
+    color: #C9A45C;
+}
+
+.event-theme-jodihaldi .event-back-title {
+    color: #5A0815;
+}
+
+.event-theme-jodihaldi .event-back-eyebrow {
+    color: #8C1D2F;
+}
+
+.event-theme-jodihaldi .event-back-divider,
+.event-theme-jodihaldi .event-back-divider-sub {
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+}
+
+.event-theme-jodihaldi .event-back-label {
+    color: #8C1D2F;
+}
+
+.event-theme-jodihaldi .event-back-val {
+    color: #42060E;
+}
+
+.event-theme-jodihaldi .event-back-tagline {
+    color: #6A1A24;
+}
+
+.event-theme-jodihaldi .event-back-flip-return {
+    color: #A17E22;
+}
+
+.event-theme-jodihaldi .event-venue-link {
+    color: #5A0815;
+}
+
+.event-theme-jodihaldi .event-venue-link:hover,
+.event-theme-jodihaldi .event-venue-link:active {
+    color: #8C1D2F;
+}
+
+.event-theme-jodihaldi .event-venue-link-sub {
+    color: #7A2E1A;
+}
+
+/* ── 13. Clickable Venue Map Links ── */
+.event-venue-link {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.66rem, 1.9vw, 0.76rem);
+    font-weight: 600;
+    letter-spacing: 1.1px;
+    color: #8C2A3C;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.25s ease, transform 0.2s ease;
+    pointer-events: auto;
+    margin-top: 2px;
+}
+
+.event-venue-link:hover,
+.event-venue-link:active {
+    color: #D4AF37;
+    text-decoration: underline;
+}
+
+.event-venue-link-sub {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.62rem, 1.7vw, 0.72rem);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-transform: none;
+    color: #5C3D22;
+    margin-top: 1px;
+    line-height: 1.25;
+    max-width: 260px;
+    text-align: center;
+}
+
+.event-venue-link-sub:hover,
+.event-venue-link-sub:active {
+    color: #9A7B1C;
+    text-decoration: underline;
+}
+
+/* The elegant location image button (retained for cards that use it) */
+.event-venue-img-btn {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1.5px solid rgba(212, 175, 55, 0.55);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+.event-venue-img-btn img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.event-venue-img-btn:hover,
+.event-venue-img-btn:active {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+}

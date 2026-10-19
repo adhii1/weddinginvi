@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <g fill="none" stroke="#D4AF37" stroke-width="1.5">
+    <circle cx="100" cy="100" r="90" stroke-dasharray="4,4"/>
+    <circle cx="100" cy="100" r="75"/>
+    <circle cx="100" cy="100" r="60"/>
+    <circle cx="100" cy="100" r="45" stroke-dasharray="2,2"/>
+    <circle cx="100" cy="100" r="30" fill="#D4AF37" fill-opacity="0.1"/>
+    
+    <g transform="translate(100,100)">
+      <path d="M0 -75 C15 -60 15 -45 0 -30 C-15 -45 -15 -60 0 -75 Z"/>
+      <path d="M0 -75 C15 -60 15 -45 0 -30 C-15 -45 -15 -60 0 -75 Z" transform="rotate(45)"/>
+      <path d="M0 -75 C15 -60 15 -45 0 -30 C-15 -45 -15 -60 0 -75 Z" transform="rotate(90)"/>
+      <path d="M0 -75 C15 -60 15 -45 0 -30 C-15 -45 -15 -60 0 -75 Z" transform="rotate(135)"/>
+      <path d="M0 -75 C15 -60 15 -45 0 -30 C-15 -45 -15 -60 0 -75 Z" transform="rotate(180)"/>
+      <path d="M0 -75 C15 -60 15 -45 0 -30 C-15 -45 -15 -60 0 -75 Z" transform="rotate(225)"/>
+      <path d="M0 -75 C15 -60 15 -45 0 -30 C-15 -45 -15 -60 0 -75 Z" transform="rotate(270)"/>
+      <path d="M0 -75 C15 -60 15 -45 0 -30 C-15 -45 -15 -60 0 -75 Z" transform="rotate(315)"/>
+    </g>
+  </g>
+</svg>

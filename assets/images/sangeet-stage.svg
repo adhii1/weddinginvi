@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <radialGradient id="sangeetBg" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1A103C"/>
+      <stop offset="60%" stop-color="#0B061A"/>
+      <stop offset="100%" stop-color="#030108"/>
+    </radialGradient>
+    <radialGradient id="glowGold" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE082" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FFB300" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="600" height="400" fill="url(#sangeetBg)"/>
+
+  <g fill="#FFF" opacity="0.6">
+    <circle cx="80" cy="60" r="1.5"/><circle cx="150" cy="40" r="2"/><circle cx="230" cy="80" r="1"/>
+    <circle cx="320" cy="30" r="2.5"/><circle cx="450" cy="70" r="1.5"/><circle cx="520" cy="50" r="2"/>
+    <circle cx="100" cy="140" r="1"/><circle cx="500" cy="130" r="1.5"/>
+  </g>
+
+  <g stroke="#FFD54F" stroke-width="1" fill="none">
+    <line x1="50" y1="0" x2="50" y2="120"/><line x1="120" y1="0" x2="120" y2="80"/>
+    <line x1="200" y1="0" x2="200" y2="140"/><line x1="400" y1="0" x2="400" y2="130"/>
+    <line x1="480" y1="0" x2="480" y2="90"/><line x1="550" y1="0" x2="550" y2="110"/>
+    <path d="M0 40 Q150 100 300 40 Q450 100 600 40" stroke-dasharray="4,8" stroke-width="2"/>
+  </g>
+
+  <g fill="#FFCA28" stroke="#FFA000">
+    <circle cx="50" cy="120" r="15" fill="url(#glowGold)"/>
+    <rect x="44" y="112" width="12" height="16" rx="2" fill="#FFE082"/>
+    <circle cx="200" cy="140" r="18" fill="url(#glowGold)"/>
+    <rect x="193" y="130" width="14" height="20" rx="3" fill="#FFE082"/>
+    <circle cx="400" cy="130" r="16" fill="url(#glowGold)"/>
+    <rect x="393" y="121" width="14" height="18" rx="2" fill="#FFE082"/>
+  </g>
+
+  <ellipse cx="300" cy="380" rx="260" ry="40" fill="#120A2A" stroke="#FFD54F" stroke-width="1"/>
+
+  <g id="sangeetCouple">
+    <path d="M245 280 L230 380 L290 380 L275 280 Z" fill="#111827" stroke="#D4AF37" stroke-width="1.5"/>
+    <path d="M245 280 L260 240 L275 280 Z" fill="#1F2937"/>
+    <circle cx="260" cy="225" r="14" fill="#E5C09B"/>
+    <path d="M248 220 Q260 210 272 220 Q260 215 248 220 Z" fill="#222"/>
+    <path d="M245 250 Q235 300 240 370" stroke="#C5A059" stroke-width="6" fill="none"/>
+
+    <path d="M315 280 L280 380 L370 380 L335 280 Z" fill="#9333EA" stroke="#F472B6" stroke-width="1.5"/>
+    <path d="M315 280 L325 245 L335 280 Z" fill="#EC4899"/>
+    <circle cx="325" cy="230" r="13" fill="#E5C09B"/>
+    <path d="M312 230 Q325 210 338 230 Q325 218 312 230 Z" fill="#111"/>
+    <path d="M315 235 Q345 260 360 360" stroke="#F472B6" stroke-width="5" fill="none" opacity="0.8"/>
+
+    <path d="M270 270 Q292 280 315 270" stroke="#FFD700" stroke-width="4" fill="none"/>
+  </g>
+</svg>

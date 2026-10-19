@@ -1,0 +1,434 @@
+/* ==========================================================================
+   ENVELOPE INTRO OVERLAY
+   Closed Wedding Envelope — Double-Door Gatefold Opening
+   - Matches reference image (left side):
+     * Closed state: Tall portrait burgundy/red envelope (#4B0712 / #8F1428)
+       with fine antique-gold borders (#C9A45C), straight vertical seam,
+       top-left corner floral vine on left door, bottom-right corner floral
+       vine on right door, centered round gold seal with "K & S",
+       dark burgundy background, and elegant gold "Tap to open" text with ── ❖ ──.
+     * Single-click interaction:
+       1. Seal releases.
+       2. Left & right doors swing open outward from the center.
+       3. The existing first invitation page is revealed immediately as part
+          of the opening animation.
+       4. Visitor lands directly on the existing first page of the invitation.
+       5. Zero intermediate pages, preview cards, or extra screens.
+   ========================================================================== */
+
+/* ── 1. Full-viewport overlay ── */
+#envelope-intro {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at 50% 48%, #3A0610 0%, #250309 50%, #120104 100%);
+    overflow: hidden;
+    touch-action: none;
+    overscroll-behavior: none;
+    transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Velvet background ambient lighting */
+#envelope-intro::before {
+    content: '';
+    position: absolute;
+    width: min(95vw, 700px);
+    height: min(95vw, 700px);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(143, 20, 40, 0.35) 0%, rgba(201, 164, 92, 0.1) 45%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    animation: envAmbientBreath 5s ease-in-out infinite alternate;
+}
+
+@keyframes envAmbientBreath {
+    0%   { transform: scale(0.96); opacity: 0.75; }
+    100% { transform: scale(1.04); opacity: 1; }
+}
+
+/* Ambient petals & gypsophila in backdrop (Matches photoshoot aesthetic) */
+.env-bg-decorations {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.env-petal {
+    position: absolute;
+    border-radius: 50% 0 50% 50%;
+    background: linear-gradient(135deg, #7A0D1F 0%, #4B0712 100%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    opacity: 0.85;
+}
+
+.env-petal-1 {
+    top: 22%;
+    left: 8%;
+    width: 16px;
+    height: 24px;
+    transform: rotate(-35deg);
+}
+
+.env-petal-2 {
+    top: 30%;
+    right: 9%;
+    width: 14px;
+    height: 20px;
+    transform: rotate(42deg);
+}
+
+.env-petal-3 {
+    bottom: 14%;
+    left: 10%;
+    width: 18px;
+    height: 25px;
+    transform: rotate(18deg);
+}
+
+.env-petal-4 {
+    bottom: 28%;
+    right: 7%;
+    width: 15px;
+    height: 22px;
+    transform: rotate(-55deg);
+}
+
+/* Delicate white gypsophila clusters in corners */
+.env-flora {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    pointer-events: none;
+    opacity: 0.45;
+}
+
+.env-flora-tl {
+    top: 3%;
+    left: 2%;
+    background:
+        radial-gradient(circle at 20% 30%, #FFFDF8 1.5px, transparent 2.5px),
+        radial-gradient(circle at 45% 20%, #FFF8EA 2px, transparent 3px),
+        radial-gradient(circle at 35% 55%, #FFFDF8 1.5px, transparent 2.5px),
+        radial-gradient(circle at 70% 35%, #FFF8EA 2px, transparent 3px),
+        radial-gradient(circle at 55% 70%, #FFFDF8 1.5px, transparent 2.5px);
+}
+
+.env-flora-br {
+    bottom: 3%;
+    right: 2%;
+    background:
+        radial-gradient(circle at 80% 70%, #FFFDF8 1.5px, transparent 2.5px),
+        radial-gradient(circle at 55% 80%, #FFF8EA 2px, transparent 3px),
+        radial-gradient(circle at 65% 45%, #FFFDF8 1.5px, transparent 2.5px),
+        radial-gradient(circle at 30% 65%, #FFF8EA 2px, transparent 3px),
+        radial-gradient(circle at 45% 30%, #FFFDF8 1.5px, transparent 2.5px);
+}
+
+/* ── 2. Scene Wrapper ── */
+.env-scene {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(14px, 2.8vh, 22px);
+    padding: clamp(8px, 2vw, 16px);
+    width: 100%;
+    max-width: 800px;
+    animation: envSceneEntrance 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes envSceneEntrance {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── 3. The Clickable Envelope Button ── */
+#env-clickable {
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+    animation: envGentleFloat 4.2s ease-in-out infinite;
+    will-change: transform;
+    display: block;
+    user-select: none;
+}
+
+@keyframes envGentleFloat {
+    0%, 100% { transform: translateY(0px); }
+    50%      { transform: translateY(-5px); }
+}
+
+#env-clickable.opening {
+    animation: none;
+}
+
+#env-clickable.stage-pressed .env-box {
+    transform: scale(0.985);
+    transition: transform 0.12s ease;
+}
+
+/* ── 4. Main Envelope Box (Portrait Proportion) ── */
+/* Portrait aspect-ratio: taller than wide (~1 : 1.54) */
+.env-box {
+    position: relative;
+    width: min(78vw, calc(68vh * 0.65), 340px);
+    aspect-ratio: 1 / 1.54;
+    border-radius: 4px;
+    box-shadow:
+        0 28px 70px rgba(0, 0, 0, 0.8),
+        0 8px 24px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(201, 164, 92, 0.4),
+        0 0 45px rgba(143, 20, 40, 0.35);
+    perspective: 1200px;
+    transform-style: preserve-3d;
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+
+@media (min-width: 768px) {
+    .env-box {
+        width: min(42vw, calc(74vh * 0.65), 370px);
+    }
+}
+
+#env-clickable:hover .env-box,
+#env-clickable:focus-visible .env-box {
+    box-shadow:
+        0 32px 85px rgba(0, 0, 0, 0.85),
+        0 0 0 1.5px rgba(223, 192, 124, 0.75),
+        0 0 55px rgba(201, 164, 92, 0.45);
+}
+
+/* ── 5. DOUBLE-DOOR GATEFOLD PANELS (Left & Right) ── */
+.env-panel {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 10;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.75s cubic-bezier(0.25, 1, 0.35, 1), box-shadow 0.75s ease;
+}
+
+/* Left Door Panel — swings outward to the left */
+.env-panel-left {
+    left: 0;
+    transform-origin: left center;
+    border-radius: 4px 0 0 4px;
+    border-right: 1px solid rgba(30, 2, 6, 0.6);
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Right Door Panel — swings outward to the right */
+.env-panel-right {
+    right: 0;
+    transform-origin: right center;
+    border-radius: 0 4px 4px 0;
+    border-left: 1px solid rgba(201, 164, 92, 0.35);
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Double-Door Outward Swing on Click */
+.env-panel-left.panel-open {
+    transform: rotateY(-110deg) !important;
+    box-shadow: 18px 4px 34px rgba(0, 0, 0, 0.65);
+}
+
+.env-panel-right.panel-open {
+    transform: rotateY(110deg) !important;
+    box-shadow: -18px 4px 34px rgba(0, 0, 0, 0.65);
+}
+
+/* Panel Faces */
+.env-panel-face {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
+}
+
+/* Front Face: Deep burgundy and rich wedding red (#4B0712 / #8F1428) */
+.env-panel-front {
+    background: linear-gradient(165deg, #8F1428 0%, #6E0E1F 45%, #4B0712 100%);
+    border: 1px solid rgba(201, 164, 92, 0.65);
+    box-sizing: border-box;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Inner antique-gold rectangular border */
+.env-panel-frame {
+    position: absolute;
+    inset: clamp(6px, 1.8vw, 10px);
+    border: 1px solid rgba(201, 164, 92, 0.7);
+    border-radius: 2px;
+    box-shadow:
+        inset 0 0 0 1px rgba(201, 164, 92, 0.2);
+}
+
+/* Corner Floral Vines */
+.env-corner-vine {
+    position: absolute;
+    pointer-events: none;
+    z-index: 2;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+}
+
+/* Top-Left Corner Floral Vine on Left Door Only */
+.env-corner-vine-tl {
+    top: clamp(4px, 1.2vw, 8px);
+    left: clamp(4px, 1.2vw, 8px);
+    width: clamp(68px, 19vw, 95px);
+    height: auto;
+}
+
+/* Bottom-Right Corner Floral Vine on Right Door Only */
+.env-corner-vine-br {
+    bottom: clamp(4px, 1.2vw, 8px);
+    right: clamp(4px, 1.2vw, 8px);
+    width: clamp(68px, 19vw, 95px);
+    height: auto;
+}
+
+/* Back face of panels */
+.env-panel-back {
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.env-panel-back-lining {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #5A0A17 0%, #3F060F 100%);
+    box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.4);
+}
+
+/* ── 6. SMALL ELEGANT ROUND GOLD SEAL (K & S) ── */
+/* Placed directly over the center seam */
+.env-seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(48px, 11vw, 58px);
+    height: clamp(48px, 11vw, 58px);
+    z-index: 25;
+    pointer-events: none;
+    transition: transform 0.35s ease, opacity 0.35s ease, filter 0.35s ease;
+    animation: sealGentleShimmer 3.2s ease-in-out infinite;
+}
+
+@keyframes sealGentleShimmer {
+    0%, 100% {
+        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.65));
+    }
+    50% {
+        filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 10px rgba(201, 164, 92, 0.45));
+    }
+}
+
+.env-seal-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Seal release animation on interaction */
+.env-seal.seal-release {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    filter: drop-shadow(0 0 18px rgba(201, 164, 92, 0.85));
+}
+
+/* ── 7. ELEGANT GOLD "TAP TO OPEN" INSTRUCTION ── */
+.env-tap-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    pointer-events: none;
+    user-select: none;
+    transition: opacity 0.25s ease;
+}
+
+.env-tap-hint.hint-hide {
+    opacity: 0;
+}
+
+.env-tap-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.05rem, 3.2vw, 1.25rem);
+    font-style: italic;
+    color: #DFC07C;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
+    animation: tapHintPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes tapHintPulse {
+    0%, 100% { opacity: 0.75; transform: scale(0.98); }
+    50%      { opacity: 1;    transform: scale(1.02); }
+}
+
+.env-tap-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 110px;
+}
+
+.env-tap-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #C9A45C, transparent);
+}
+
+.env-tap-glyph {
+    color: #C9A45C;
+    font-size: 0.65rem;
+    line-height: 1;
+}
+
+/* ── 8. Seamless Direct Transition into Page 1 ── */
+#envelope-intro.env-exit {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+#envelope-intro.env-exit .env-box {
+    transform: scale(1.04);
+    transition: transform 0.55s ease;
+}
+
+#envelope-intro.env-hidden {
+    display: none !important;
+}
+
+/* ── 9. Responsive Optimizations for Landscape / Small Heights ── */
+@media (max-height: 580px) {
+    .env-scene { gap: 8px; }
+    .env-box {
+        width: min(64vw, calc(78vh * 0.65), 290px);
+    }
+    .env-tap-text { font-size: 0.9rem; }
+    .env-petal, .env-flora { display: none; }
+}

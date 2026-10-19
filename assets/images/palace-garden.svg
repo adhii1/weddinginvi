@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFE4D6"/>
+      <stop offset="50%" stop-color="#FFF0F5"/>
+      <stop offset="100%" stop-color="#E8F5E9"/>
+    </linearGradient>
+    <linearGradient id="palaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF0E6"/>
+      <stop offset="100%" stop-color="#E6D7C3"/>
+    </linearGradient>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#80DEEA"/>
+      <stop offset="100%" stop-color="#26C6DA"/>
+    </linearGradient>
+    <linearGradient id="grassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#A5D6A7"/>
+      <stop offset="100%" stop-color="#66BB6A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="800" height="450" fill="url(#skyGrad)"/>
+
+  <!-- Distant Cypress Trees -->
+  <g fill="#388E3C" opacity="0.7">
+    <path d="M50 240 Q45 150 50 120 Q55 150 50 240 Z"/>
+    <path d="M80 240 Q75 160 80 135 Q85 160 80 240 Z"/>
+    <path d="M720 240 Q715 160 720 135 Q725 160 720 240 Z"/>
+    <path d="M750 240 Q745 150 750 120 Q755 150 750 240 Z"/>
+  </g>
+
+  <!-- Palace Architecture in Background -->
+  <g fill="url(#palaceGrad)" stroke="#BCAAA4" stroke-width="1.5">
+    <rect x="150" y="100" width="500" height="140" rx="4"/>
+    
+    <path d="M350 240 L350 160 Q400 120 450 160 L450 240 Z" fill="#D7CCC8"/>
+    <path d="M180 240 L180 170 Q215 140 250 170 L250 240 Z" fill="#D7CCC8"/>
+    <path d="M265 240 L265 170 Q300 140 335 170 L335 240 Z" fill="#D7CCC8"/>
+    <path d="M465 240 L465 170 Q500 140 535 170 L535 240 Z" fill="#D7CCC8"/>
+    <path d="M550 240 L550 170 Q585 140 620 170 L620 240 Z" fill="#D7CCC8"/>
+
+    <path d="M360 100 Q350 50 400 30 Q450 50 440 100 Z" fill="#FFF8E7"/>
+    <path d="M400 30 L400 10 M397 15 L403 15" stroke="#D4AF37" stroke-width="3"/>
+    <circle cx="400" cy="10" r="3" fill="#D4AF37"/>
+
+    <path d="M190 100 Q185 70 215 55 Q245 70 240 100 Z" fill="#FFF8E7"/>
+    <path d="M560 100 Q555 70 585 55 Q615 70 610 100 Z" fill="#FFF8E7"/>
+
+    <line x1="140" y1="100" x2="660" y2="100" stroke="#8D6E63" stroke-width="4"/>
+    <path d="M150 90 L650 90" stroke="#8D6E63" stroke-width="2" stroke-dasharray="6,4"/>
+  </g>
+
+  <!-- Side Staircases & Terrace Balustrades -->
+  <g fill="#E0D5C1" stroke="#A1887F" stroke-width="1">
+    <path d="M50 240 L160 240 L180 320 L50 320 Z"/>
+    <path d="M50 220 L160 220 L180 300 M70 240 L70 220 M110 240 L110 220 M150 240 L150 220 M170 280 L170 260"/>
+  </g>
+
+  <g fill="#E0D5C1" stroke="#A1887F" stroke-width="1">
+    <path d="M640 240 L750 240 L750 320 L620 320 Z"/>
+    <path d="M640 220 L750 220 L750 300 M650 240 L650 220 M690 240 L690 220 M730 240 L730 220 M630 280 L630 260"/>
+  </g>
+
+  <!-- Central Garden Lawn & Paths -->
+  <rect x="0" y="240" width="800" height="210" fill="url(#grassGrad)"/>
+
+  <!-- Water Channel & Fountains -->
+  <path d="M300 240 L500 240 L560 450 L240 450 Z" fill="url(#waterGrad)" stroke="#B2EBF2" stroke-width="2"/>
+
+  <!-- Central Pool & Fountain -->
+  <ellipse cx="400" cy="350" rx="90" ry="40" fill="#00ACC1" stroke="#E0F7FA" stroke-width="4"/>
+  <ellipse cx="400" cy="350" rx="70" ry="30" fill="#00E5FF"/>
+
+  <path d="M390 350 L385 320 Q400 310 415 320 L410 350 Z" fill="#FFF8E7" stroke="#D4AF37"/>
+  <path d="M375 320 Q400 305 425 320 Q400 315 375 320 Z" fill="#FFF8E7" stroke="#D4AF37"/>
+
+  <!-- Water Jet Spray -->
+  <g stroke="#FFFFFF" stroke-width="2" opacity="0.9" fill="none">
+    <path d="M400 310 Q400 250 380 270 M400 310 Q400 250 420 270 M400 310 Q400 240 395 260 M400 310 Q400 240 405 260"/>
+    <circle cx="380" cy="272" r="3" fill="#FFF"/>
+    <circle cx="420" cy="272" r="3" fill="#FFF"/>
+    <circle cx="400" cy="245" r="4" fill="#FFF"/>
+  </g>
+
+  <!-- Palm Trees & Flowering Bushes -->
+  <g>
+    <path d="M80 450 Q90 360 100 300" stroke="#795548" stroke-width="8" fill="none"/>
+    <g fill="#2E7D32" stroke="#1B5E20">
+      <path d="M100 300 Q60 270 20 300 Q60 285 100 300 Z"/>
+      <path d="M100 300 Q70 250 40 250 Q75 265 100 300 Z"/>
+      <path d="M100 300 Q110 240 130 230 Q115 260 100 300 Z"/>
+      <path d="M100 300 Q140 260 170 280 Q135 285 100 300 Z"/>
+    </g>
+
+    <path d="M720 450 Q710 360 700 300" stroke="#795548" stroke-width="8" fill="none"/>
+    <g fill="#2E7D32" stroke="#1B5E20">
+      <path d="M700 300 Q660 260 630 280 Q665 285 700 300 Z"/>
+      <path d="M700 300 Q690 240 670 230 Q685 260 700 300 Z"/>
+      <path d="M700 300 Q730 250 760 250 Q725 265 700 300 Z"/>
+      <path d="M700 300 Q740 270 780 300 Q740 285 700 300 Z"/>
+    </g>
+
+    <circle cx="360" cy="360" r="6" fill="#FF4081"/>
+    <circle cx="440" cy="355" r="5" fill="#FF4081"/>
+    <circle cx="410" cy="370" r="7" fill="#F50057"/>
+  </g>
+</svg>

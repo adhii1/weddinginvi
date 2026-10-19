@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 120" width="100%" height="120" preserveAspectRatio="none">
+  <defs>
+    <radialGradient id="marigoldOrange" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF9900"/>
+      <stop offset="70%" stop-color="#FF6600"/>
+      <stop offset="100%" stop-color="#CC3300"/>
+    </radialGradient>
+    <radialGradient id="marigoldYellow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFF00"/>
+      <stop offset="70%" stop-color="#FFCC00"/>
+      <stop offset="100%" stop-color="#FF9900"/>
+    </radialGradient>
+    <g id="flowerO">
+      <circle cx="0" cy="0" r="12" fill="url(#marigoldOrange)"/>
+      <circle cx="0" cy="0" r="8" fill="#FFCC00" opacity="0.6"/>
+      <circle cx="0" cy="0" r="4" fill="#663300" opacity="0.4"/>
+    </g>
+    <g id="flowerY">
+      <circle cx="0" cy="0" r="12" fill="url(#marigoldYellow)"/>
+      <circle cx="0" cy="0" r="8" fill="#FF9900" opacity="0.6"/>
+      <circle cx="0" cy="0" r="4" fill="#993300" opacity="0.4"/>
+    </g>
+    <g id="leafG">
+      <path d="M0 0 Q10 -15 20 0 Q10 15 0 0 Z" fill="#2E7D32"/>
+    </g>
+  </defs>
+  <!-- Top string -->
+  <path d="M0 10 Q200 30 400 10 Q600 30 800 10" stroke="#4A7C59" stroke-width="3" fill="none"/>
+  <path d="M0 15 Q200 45 400 15 Q600 45 800 15" stroke="#4A7C59" stroke-width="2" fill="none"/>
+  
+  <!-- Main garland row -->
+  <g transform="translate(0, 15)">
+    <!-- Swags -->
+    <use href="#flowerO" x="40" y="10"/><use href="#flowerY" x="70" y="22"/><use href="#flowerO" x="100" y="30"/><use href="#flowerY" x="130" y="32"/><use href="#flowerO" x="160" y="30"/><use href="#flowerY" x="190" y="22"/><use href="#flowerO" x="220" y="10"/>
+    <use href="#flowerO" x="240" y="10"/><use href="#flowerY" x="270" y="22"/><use href="#flowerO" x="300" y="30"/><use href="#flowerY" x="330" y="32"/><use href="#flowerO" x="360" y="30"/><use href="#flowerY" x="390" y="22"/><use href="#flowerO" x="420" y="10"/>
+    <use href="#flowerO" x="440" y="10"/><use href="#flowerY" x="470" y="22"/><use href="#flowerO" x="500" y="30"/><use href="#flowerY" x="530" y="32"/><use href="#flowerO" x="560" y="30"/><use href="#flowerY" x="590" y="22"/><use href="#flowerO" x="620" y="10"/>
+    <use href="#flowerO" x="640" y="10"/><use href="#flowerY" x="670" y="22"/><use href="#flowerO" x="700" y="30"/><use href="#flowerY" x="730" y="32"/><use href="#flowerO" x="760" y="22"/>
+  </g>
+  
+  <!-- Vertical Hanging Strings -->
+  <g>
+    <line x1="130" y1="45" x2="130" y2="105" stroke="#FF9900" stroke-dasharray="8,4" stroke-width="4"/>
+    <use href="#flowerO" x="130" y="110"/>
+    <use href="#leafG" x="120" y="80" transform="rotate(-30 120 80)"/>
+    
+    <line x1="330" y1="45" x2="330" y2="115" stroke="#FFCC00" stroke-dasharray="8,4" stroke-width="4"/>
+    <use href="#flowerY" x="330" y="120"/>
+    <use href="#leafG" x="340" y="90" transform="rotate(30 340 90)"/>
+
+    <line x1="530" y1="45" x2="530" y2="105" stroke="#FF9900" stroke-dasharray="8,4" stroke-width="4"/>
+    <use href="#flowerO" x="530" y="110"/>
+
+    <line x1="730" y1="45" x2="730" y2="115" stroke="#FFCC00" stroke-dasharray="8,4" stroke-width="4"/>
+    <use href="#flowerY" x="730" y="120"/>
+  </g>
+</svg>

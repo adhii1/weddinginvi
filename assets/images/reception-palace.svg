@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="receptionBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3B0764"/>
+      <stop offset="50%" stop-color="#1E1B4B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <radialGradient id="palaceGlow" cx="50%" cy="60%" r="50%">
+      <stop offset="0%" stop-color="#FDE047" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#CA8A04" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="600" height="400" fill="url(#receptionBg)"/>
+
+  <g fill="#2A1B40" stroke="#F59E0B" stroke-width="1.5">
+    <path d="M200 380 L200 180 Q300 100 400 180 L400 380 Z"/>
+    <path d="M220 380 L220 200 Q300 130 380 200 L380 380 Z" fill="url(#palaceGlow)"/>
+
+    <rect x="80" y="160" width="90" height="220" rx="4"/>
+    <path d="M70 160 L125 100 L180 160 Z" fill="#D97706"/>
+
+    <rect x="430" y="160" width="90" height="220" rx="4"/>
+    <path d="M420 160 L475 100 L530 160 Z" fill="#D97706"/>
+  </g>
+
+  <g fill="#FCD34D" opacity="0.8">
+    <path d="M120 80 Q130 70 140 80 Q130 75 120 80 Z"/>
+    <path d="M150 60 Q160 50 170 60 Q160 55 150 60 Z"/>
+    <path d="M440 70 Q450 60 460 70 Q450 65 440 70 Z"/>
+  </g>
+
+  <g id="receptionCouple">
+    <path d="M250 270 L235 380 L285 380 L275 270 Z" fill="#FAFAF9" stroke="#D4AF37" stroke-width="1.5"/>
+    <circle cx="262" cy="225" r="12" fill="#E5C09B"/>
+    <path d="M248 220 Q262 195 276 220 Z" fill="#DC2626"/>
+    <path d="M262 198 L262 185 M260 188 L264 188" stroke="#FBBF24" stroke-width="2"/>
+
+    <path d="M315 270 L280 380 L370 380 L335 270 Z" fill="#DB2777" stroke="#FCD34D" stroke-width="1.5"/>
+    <path d="M315 270 L325 240 L335 270 Z" fill="#BE185D"/>
+    <circle cx="325" cy="225" r="12" fill="#E5C09B"/>
+    <path d="M313 222 Q325 205 337 222 Z" fill="#DB2777"/>
+    <circle cx="325" cy="216" r="2" fill="#FBBF24"/>
+  </g>
+</svg>
