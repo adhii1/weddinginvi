@@ -209,7 +209,7 @@ html, body {
    SCREEN 1: WELCOME COVER (PAGE 1)
    -------------------------------------------------------------------------- */
 #screen-welcome {
-    background: #1a0a05;
+    background: #F5EFEB; /* matches the warm cream border tone of i.jpeg */
     padding: 0;
     position: relative;
     overflow: hidden;
@@ -225,18 +225,22 @@ html, body {
     width: 100%;
     height: 100%;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
 /*
- * The image fills the welcome screen.
- * object-position: center center anchors the composition symmetrically so the
- * red invitation panel is centered both horizontally and vertically.
+ * object-fit: contain preserves the image's natural aspect ratio and displays
+ * the full intended composition of i.jpeg without excessive zooming, cropping,
+ * or distortion. The matching background on #screen-welcome ensures seamless
+ * blending on both mobile phones and laptops.
  */
 .page1-bg-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center center;
     display: block;
 }
