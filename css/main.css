@@ -251,11 +251,26 @@ body {
     object-position: center center;
     display: block;
 }
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center center;
-    display: block;
+
+/* Mobile: remove top gap and enlarge image moderately so it fills the first page nicely */
+@media (max-width: 767px) {
+    #screen-welcome {
+        padding: 0 !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
+    }
+
+    .page1-bg-wrapper {
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .page1-bg-img {
+        object-fit: contain;
+        object-position: center top;
+        transform: scale(1.24);
+        transform-origin: center top;
+    }
 }
 
 /*
@@ -269,8 +284,7 @@ body {
  *
  * Robust horizontal centering:
  * Using left: 0; right: 0; margin-left: auto; margin-right: auto; guarantees
- * horizontal centering independent of CSS transforms, completely immune to
- * animation overrides.
+ * horizontal centering independent of CSS transforms.
  */
 .page1-text-overlay {
     position: absolute;
@@ -283,26 +297,15 @@ body {
     width: min(88%, 380px);
     max-height: 68vh;
     text-align: center;
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0;
     pointer-events: none;
     z-index: 10;
-}
-
-/* Specificity override for .anim-fade-up:
-   Preserve vertical centering (translateY(-50%)) during entrance animation */
-.page1-text-overlay.anim-fade-up {
-    opacity: 0;
-    transform: translateY(calc(-50% + 20px));
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.screen-active .page1-text-overlay.anim-fade-up {
-    opacity: 1;
-    transform: translateY(-50%);
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 /* ── Eyebrow: "WEDDING INVITATION" ── */
@@ -462,7 +465,7 @@ body {
 @media (max-width: 480px) {
     .page1-text-overlay {
         width: min(88%, 340px);
-        top: 50%;
+        top: 42%;
         padding: 0 0.5rem;
     }
 
@@ -500,7 +503,7 @@ body {
 @media (max-width: 360px) {
     .page1-text-overlay {
         width: min(90%, 310px);
-        top: 50%;
+        top: 42%;
     }
 
     .page1-invited-heading {
