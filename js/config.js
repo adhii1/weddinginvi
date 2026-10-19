@@ -103,6 +103,11 @@ const weddingDetails = {
         city: "Bengaluru",
         fullAddress: "19/5, Bilijaji, Hesaraghatta, Bengaluru, Karnataka – 560088",
         mapsUrl: "https://maps.google.com/?q=Alila+Meadows+and+SK+Farms+Bilijaji+Hesaraghatta+Bengaluru+560088"
+    },
+
+    pickupLocation: {
+        name: "Green Rich Enclave, HBR Layout (Bride's Home)",
+        mapsUrl: "https://maps.google.com/?q=Green+Rich+Enclave,+HBR+Layout"
     }
 };
 

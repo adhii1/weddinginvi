@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const directionsBtn = document.getElementById('get-directions-btn');
     if (directionsBtn) {
         directionsBtn.addEventListener('click', () => {
-            const mapsUrl = window.weddingDetails?.venue?.mapsUrl || "https://maps.google.com/?q=Alila+Meadows+and+SK+Farms+Bilijaji+Hesaraghatta+Bengaluru+560088";
+            const mapsUrl = window.weddingDetails?.pickupLocation?.mapsUrl || "https://maps.google.com/?q=Green+Rich+Enclave,+HBR+Layout";
             window.open(mapsUrl, '_blank');
         });
     }
