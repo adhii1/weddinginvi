@@ -6,11 +6,11 @@ const weddingDetails = {
     brideName: "Arshitha",
     brideFullName: "Arshitha",
     brideParents: "Shri. G. RAJU & Smt. SANGEETHA RAJU",
-    
+
     groomName: "VIVEK.A",
     groomFullName: "VIVEK.A",
     groomParents: "Shri. Anbalagan C.K & Smt. Mary Stella A",
-    
+
     // Target date for the live countdown timer (ISO format: YYYY-MM-DDTHH:MM:SS)
     weddingDateISO: "2026-11-16T09:30:00",
     weddingDateFormatted: "Monday, 16th November 2026",
@@ -22,7 +22,7 @@ const weddingDetails = {
             eyebrow: "Auspicious Ceremony",
             tagline: "A vibrant celebration of turmeric, blessings and joy",
             date: "Thursday, 12th November 2026",
-            time: "12:30 PM – 2:30 PM",
+            time: "10:30 PM – 2:30 PM",
             dressColor: "White (DC-White)",
             dressHex: "#FFFFFF",
             image: "assets/images/i (9).jpeg"
