@@ -60,7 +60,7 @@
 }
 
 .event-page-screen.event-theme-jodihaldi {
-    background: radial-gradient(ellipse at 50% 25%, #3A4E3B 0%, #2A3A2B 55%, #162019 100%) !important;
+    background: radial-gradient(ellipse at 50% 25%, #3D0A14 0%, #24050D 55%, #120206 100%) !important;
 }
 
 .event-page-screen.event-theme-sangeeth,
@@ -73,7 +73,7 @@
 }
 
 .event-page-screen.event-theme-muhurtham {
-    background: radial-gradient(ellipse at 50% 25%, #40513A 0%, #2A3A2B 55%, #162019 100%) !important;
+    background: radial-gradient(ellipse at 50% 25%, #460A16 0%, #27040B 55%, #120104 100%) !important;
 }
 
 /* ── 3. Event Page Header ── */
@@ -308,21 +308,17 @@
 
 /* Individual Image-Specific Vertical Placement in Natural Clean Space */
 
-/* 1. HALDI — Fits neatly at the top of the image */
+/* 1. HALDI — Centered in pristine temple archway above couple */
 .event-title-haldi {
-    top: 7%;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
+    top: 35%;
 }
 
 .event-title-haldi .event-card-title-text {
-    color: #40513A;
-    font-size: clamp(1.55rem, 4.6vw, 2.05rem);
-    letter-spacing: clamp(2.5px, 0.7vw, 4.5px);
+    color: #6D2008;
     text-shadow:
         0 1px 2px rgba(255, 255, 255, 0.95),
-        0 2px 8px rgba(255, 255, 255, 0.85),
-        0 0 12px rgba(214, 189, 131, 0.4);
+        0 2px 8px rgba(180, 83, 9, 0.28),
+        0 0 12px rgba(255, 255, 255, 0.8);
 }
 
 /* 2. MEHENDI — Centered in wide parchment negative space between umbrella & palm trees */
@@ -415,13 +411,13 @@
 }
 
 .event-title-muhurtham .event-card-title-text {
-    color: #40513A;
+    color: #620D1A;
     font-size: clamp(1.35rem, 3.8vw, 1.75rem);
     letter-spacing: clamp(3px, 0.8vw, 5px);
     text-shadow:
         0 1px 2px rgba(255, 255, 255, 0.98),
         0 2px 8px rgba(255, 255, 255, 0.85),
-        0 0 16px rgba(214, 189, 131, 0.35);
+        0 0 16px rgba(212, 175, 55, 0.35);
 }
 
 /* ── 8. "Touch to flip" Hint Positioned Below the Card ── */
@@ -707,11 +703,11 @@
 }
 
 .event-theme-jodihaldi .event-back-title {
-    color: #40513A;
+    color: #5A0815;
 }
 
 .event-theme-jodihaldi .event-back-eyebrow {
-    color: #B7CBA5;
+    color: #8C1D2F;
 }
 
 .event-theme-sangeeth .event-back-title,
@@ -733,11 +729,11 @@
 }
 
 .event-theme-muhurtham .event-back-title {
-    color: #40513A;
+    color: #621020;
 }
 
 .event-theme-muhurtham .event-back-eyebrow {
-    color: #B7CBA5;
+    color: #8C2234;
 }
 
 /* ── 12. Navigation Between Event Pages (Book Navigation) ── */
@@ -763,15 +759,15 @@
     font-size: clamp(0.72rem, 2vw, 0.82rem);
     font-weight: 600;
     letter-spacing: 1.5px;
-    color: #FFFDF5;
+    color: #FFF3D4;
     text-decoration: none;
     padding: 0.42rem 1rem;
     border-radius: 25px;
-    background: rgba(64, 81, 58, 0.85);
+    background: rgba(28, 4, 9, 0.65);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(214, 189, 131, 0.65);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.55);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
     cursor: pointer;
     user-select: none;
@@ -780,11 +776,11 @@
 
 .event-nav-prev:hover,
 .event-nav-next:hover {
-    color: #FFFFFF;
-    background: rgba(183, 203, 165, 0.9);
-    border-color: #D6BD83;
+    color: #FFFDE7;
+    background: rgba(212, 175, 55, 0.25);
+    border-color: #E5C358;
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(214, 189, 131, 0.35);
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
 }
 
 .event-nav-prev:active,
@@ -798,64 +794,64 @@
 }
 
 .event-theme-jodihaldi .event-card-front {
-    background: #F8FBF4;
-    border-color: rgba(214, 189, 131, 0.75);
+    background: #FFF8EE;
+    border-color: rgba(212, 175, 55, 0.75);
 }
 
 .event-theme-jodihaldi .event-card-back {
-    background: linear-gradient(150deg, #FFFFFF 0%, #F8FBF4 45%, #FFFDF5 100%);
-    border: 2px solid #D6BD83;
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4), inset 0 0 25px rgba(214, 189, 131, 0.2);
+    background: linear-gradient(150deg, #FFFDF9 0%, #FFF5ED 45%, #FAECE3 100%);
+    border: 2px solid #8C1D2F;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), inset 0 0 25px rgba(212, 175, 55, 0.2);
 }
 
 .event-theme-jodihaldi .event-card-back-decor {
-    border-color: rgba(214, 189, 131, 0.55);
+    border-color: rgba(212, 175, 55, 0.55);
 }
 
 .event-theme-jodihaldi .event-back-auspicious {
-    color: #D6BD83;
+    color: #C9A45C;
 }
 
 .event-theme-jodihaldi .event-back-title {
-    color: #40513A;
+    color: #5A0815;
 }
 
 .event-theme-jodihaldi .event-back-eyebrow {
-    color: #B7CBA5;
+    color: #8C1D2F;
 }
 
 .event-theme-jodihaldi .event-back-divider,
 .event-theme-jodihaldi .event-back-divider-sub {
-    background: linear-gradient(90deg, transparent, #D6BD83, transparent);
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
 }
 
 .event-theme-jodihaldi .event-back-label {
-    color: #B7CBA5;
+    color: #8C1D2F;
 }
 
 .event-theme-jodihaldi .event-back-val {
-    color: #40513A;
+    color: #42060E;
 }
 
 .event-theme-jodihaldi .event-back-tagline {
-    color: #40513A;
+    color: #6A1A24;
 }
 
 .event-theme-jodihaldi .event-back-flip-return {
-    color: #D6BD83;
+    color: #A17E22;
 }
 
 .event-theme-jodihaldi .event-venue-link {
-    color: #40513A;
+    color: #5A0815;
 }
 
 .event-theme-jodihaldi .event-venue-link:hover,
 .event-theme-jodihaldi .event-venue-link:active {
-    color: #B7CBA5;
+    color: #8C1D2F;
 }
 
 .event-theme-jodihaldi .event-venue-link-sub {
-    color: #556654;
+    color: #7A2E1A;
 }
 
 /* ── 13. Clickable Venue Map Links ── */
