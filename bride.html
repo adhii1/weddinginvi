@@ -1,0 +1,863 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Wedding Invitation ├óΓé¼ΓÇ¥ Arshitha & Vivek</title>
+    <meta name="description"
+        content="Interactive Digital Wedding Invitation for the wedding celebration of Arshitha & Vivek. Join us on 1st July 2026.">
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/envelope.css">
+    <link rel="stylesheet" href="css/events.css">
+</head>
+
+<body>
+
+    <!-- Falling Petals Canvas Overlay -->
+    <canvas id="petals-canvas"></canvas>
+
+    <!-- Floating Background Music Control Button -->
+    <button id="music-toggle-btn" class="music-toggle" aria-label="Toggle Background Music">
+        <span class="music-icon">├░┼╕ΓÇ¥ΓÇí</span>
+    </button>
+
+    <!-- Side Navigation Progress Dots -->
+    <div class="nav-dots" id="nav-dots">
+        <div class="nav-dot active" data-target="screen-welcome" title="Welcome"></div>
+        <div class="nav-dot" data-target="screen-couple" title="Couple Intro"></div>
+        <div class="nav-dot" data-target="screen-scratch" title="Scratch Reveal"></div>
+        <div class="nav-dot" data-target="screen-haldi" title="Haldi"></div>
+
+        <div class="nav-dot" data-target="screen-jodihaldi" title="Jodi Haldi"></div>
+        <div class="nav-dot" data-target="screen-sangeeth" title="Sangeeth"></div>
+        <div class="nav-dot" data-target="screen-reception" title="Reception"></div>
+        <div class="nav-dot" data-target="screen-muhurtham" title="Muhurtham"></div>
+        <div class="nav-dot" data-target="screen-families" title="Families"></div>
+        <div class="nav-dot" data-target="screen-venue" title="Venue & Map"></div>
+        <div class="nav-dot" data-target="screen-closing" title="With Love"></div>
+    </div>
+
+    <!-- ===================================================================
+         ENVELOPE INTRO OVERLAY
+         Appears before the invitation. Tapping opens the envelope
+         and transitions directly to the existing first page.
+         =================================================================== -->
+    <div id="envelope-intro" role="button" tabindex="0" aria-label="Open wedding invitation"
+        title="Tap to open your wedding invitation">
+
+        <!-- Ambient Gypsophila and Petal Accents in Backdrop -->
+        <div class="env-bg-decorations" aria-hidden="true">
+            <span class="env-petal env-petal-1"></span>
+            <span class="env-petal env-petal-2"></span>
+            <span class="env-petal env-petal-3"></span>
+            <span class="env-petal env-petal-4"></span>
+            <span class="env-flora env-flora-tl"></span>
+            <span class="env-flora env-flora-br"></span>
+        </div>
+
+        <div class="env-scene">
+
+            <!-- The clickable envelope -->
+            <button id="env-clickable" aria-label="Open wedding invitation" type="button">
+
+                <div class="env-box">
+
+                    <!-- LEFT GATEFOLD DOOR PANEL (Swings outward to the left) -->
+                    <div class="env-panel env-panel-left" id="env-panel-left">
+                        <div class="env-panel-face env-panel-front">
+                            <!-- Inner Antique Gold Frame -->
+                            <div class="env-panel-frame">
+                                <!-- Top-Left Corner Floral Vine Decoration (Matches Reference Image) -->
+                                <svg class="env-corner-vine env-corner-vine-tl" viewBox="0 0 100 120" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <!-- Delicate Gold Vines -->
+                                    <path d="M 6 8 C 18 12, 32 18, 48 14 C 62 10, 74 16, 88 12" stroke="#D6BD83"
+                                        stroke-width="1.3" stroke-linecap="round" />
+                                    <path d="M 12 6 C 14 22, 12 42, 18 62 C 22 76, 28 88, 38 104" stroke="#D6BD83"
+                                        stroke-width="1.3" stroke-linecap="round" />
+                                    <path d="M 28 15 C 38 32, 48 44, 60 52" stroke="#D6BD83" stroke-width="1.1"
+                                        stroke-linecap="round" />
+                                    <path d="M 16 48 C 28 54, 38 68, 42 78" stroke="#D6BD83" stroke-width="1"
+                                        stroke-linecap="round" />
+
+                                    <!-- Antique Gold Leaves -->
+                                    <path d="M 22 10 C 26 8, 30 11, 28 15 C 24 16, 21 13, 22 10 Z" fill="#D6BD83"
+                                        opacity="0.95" />
+                                    <path d="M 38 11 C 43 9, 46 14, 43 17 C 39 18, 36 14, 38 11 Z" fill="#DFC07C" />
+                                    <path d="M 58 11 C 63 8, 67 12, 64 16 C 60 17, 57 13, 58 11 Z" fill="#D6BD83" />
+                                    <path d="M 76 11 C 80 8, 84 12, 81 15 C 77 16, 74 13, 76 11 Z" fill="#DFC07C" />
+                                    <path d="M 10 26 C 8 21, 13 18, 16 21 C 17 25, 13 28, 10 26 Z" fill="#D6BD83" />
+                                    <path d="M 11 44 C 7 40, 11 36, 15 38 C 17 42, 14 46, 11 44 Z" fill="#DFC07C" />
+                                    <path d="M 14 62 C 10 58, 14 54, 18 56 C 20 60, 17 64, 14 62 Z" fill="#D6BD83" />
+                                    <path d="M 24 82 C 20 78, 23 73, 28 75 C 29 80, 27 84, 24 82 Z" fill="#DFC07C" />
+                                    <path d="M 32 94 C 28 90, 32 86, 36 88 C 38 92, 35 96, 32 94 Z" fill="#D6BD83" />
+
+                                    <!-- Soft Floral Blush Blossoms -->
+                                    <!-- Main Corner Flower -->
+                                    <g transform="translate(24, 24)">
+                                        <circle cx="-5" cy="0" r="4.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="5" cy="0" r="4.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="0" cy="-5" r="4.2" fill="#E29891" opacity="0.95" />
+                                        <circle cx="0" cy="5" r="4.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="3.5" cy="3.5" r="3.8" fill="#E8A6A0" opacity="0.9" />
+                                        <circle cx="-3.5" cy="-3.5" r="3.8" fill="#E8A6A0" opacity="0.9" />
+                                        <circle cx="0" cy="0" r="2.2" fill="#FFE5A3" />
+                                        <circle cx="0" cy="0" r="1.1" fill="#D6BD83" />
+                                    </g>
+
+                                    <!-- Flower Along Top Branch -->
+                                    <g transform="translate(68, 14)">
+                                        <circle cx="-3.5" cy="0" r="3.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="3.5" cy="0" r="3.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="0" cy="-3.5" r="3.2" fill="#E29891" opacity="0.95" />
+                                        <circle cx="0" cy="3.5" r="3.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="0" cy="0" r="1.8" fill="#FFE5A3" />
+                                    </g>
+
+                                    <!-- Flower Along Downward Branch -->
+                                    <g transform="translate(18, 76)">
+                                        <circle cx="-3.5" cy="0" r="3.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="3.5" cy="0" r="3.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="0" cy="-3.5" r="3.2" fill="#E29891" opacity="0.95" />
+                                        <circle cx="0" cy="3.5" r="3.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="0" cy="0" r="1.8" fill="#FFE5A3" />
+                                    </g>
+
+                                    <!-- Flower Inner Branch -->
+                                    <g transform="translate(48, 54)">
+                                        <circle cx="-3" cy="0" r="2.8" fill="#E29891" opacity="0.95" />
+                                        <circle cx="3" cy="0" r="2.8" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="0" cy="-3" r="2.8" fill="#E8A6A0" opacity="0.95" />
+                                        <circle cx="0" cy="3" r="2.8" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="0" cy="0" r="1.5" fill="#FFE5A3" />
+                                    </g>
+
+                                    <!-- Delicate Buds -->
+                                    <circle cx="92" cy="11" r="2" fill="#E29891" />
+                                    <circle cx="41" cy="107" r="2" fill="#E29891" />
+                                    <circle cx="46" cy="80" r="1.8" fill="#E29891" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="env-panel-face env-panel-back">
+                            <div class="env-panel-back-lining"></div>
+                        </div>
+                    </div><!-- /.env-panel-left -->
+
+                    <!-- RIGHT GATEFOLD DOOR PANEL (Swings outward to the right) -->
+                    <div class="env-panel env-panel-right" id="env-panel-right">
+                        <div class="env-panel-face env-panel-front">
+                            <!-- Inner Antique Gold Frame -->
+                            <div class="env-panel-frame">
+                                <!-- Bottom-Right Corner Floral Vine Decoration (Matches Reference Image) -->
+                                <svg class="env-corner-vine env-corner-vine-br" viewBox="0 0 100 120" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <!-- Delicate Gold Vines climbing upward -->
+                                    <path d="M 94 112 C 82 108, 68 102, 52 106 C 38 110, 26 104, 12 108"
+                                        stroke="#D6BD83" stroke-width="1.3" stroke-linecap="round" />
+                                    <path d="M 88 114 C 86 98, 88 78, 82 58 C 78 44, 72 32, 62 16" stroke="#D6BD83"
+                                        stroke-width="1.3" stroke-linecap="round" />
+                                    <path d="M 72 105 C 62 88, 52 76, 40 68" stroke="#D6BD83" stroke-width="1.1"
+                                        stroke-linecap="round" />
+                                    <path d="M 84 72 C 72 66, 62 52, 58 42" stroke="#D6BD83" stroke-width="1"
+                                        stroke-linecap="round" />
+
+                                    <!-- Antique Gold Leaves -->
+                                    <path d="M 78 110 C 74 112, 70 109, 72 105 C 76 104, 79 107, 78 110 Z"
+                                        fill="#D6BD83" opacity="0.95" />
+                                    <path d="M 62 109 C 57 111, 54 106, 57 103 C 61 102, 64 106, 62 109 Z"
+                                        fill="#DFC07C" />
+                                    <path d="M 42 109 C 37 112, 33 108, 36 104 C 40 103, 43 107, 42 109 Z"
+                                        fill="#D6BD83" />
+                                    <path d="M 24 109 C 20 112, 16 108, 19 105 C 23 104, 26 107, 24 109 Z"
+                                        fill="#DFC07C" />
+                                    <path d="M 90 94 C 92 99, 87 102, 84 99 C 83 95, 87 92, 90 94 Z" fill="#D6BD83" />
+                                    <path d="M 89 76 C 93 80, 89 84, 85 82 C 83 78, 86 74, 89 76 Z" fill="#DFC07C" />
+                                    <path d="M 86 58 C 90 62, 86 66, 82 64 C 80 60, 83 56, 86 58 Z" fill="#D6BD83" />
+                                    <path d="M 76 38 C 80 42, 77 47, 72 45 C 71 40, 73 36, 76 38 Z" fill="#DFC07C" />
+                                    <path d="M 68 26 C 72 30, 68 34, 64 32 C 62 28, 65 24, 68 26 Z" fill="#D6BD83" />
+
+                                    <!-- Soft Floral Blush Blossoms -->
+                                    <!-- Main Corner Flower -->
+                                    <g transform="translate(76, 96)">
+                                        <circle cx="-5" cy="0" r="4.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="5" cy="0" r="4.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="0" cy="-5" r="4.2" fill="#E29891" opacity="0.95" />
+                                        <circle cx="0" cy="5" r="4.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="3.5" cy="3.5" r="3.8" fill="#E8A6A0" opacity="0.9" />
+                                        <circle cx="-3.5" cy="-3.5" r="3.8" fill="#E8A6A0" opacity="0.9" />
+                                        <circle cx="0" cy="0" r="2.2" fill="#FFE5A3" />
+                                        <circle cx="0" cy="0" r="1.1" fill="#D6BD83" />
+                                    </g>
+
+                                    <!-- Flower Along Bottom Branch -->
+                                    <g transform="translate(32, 106)">
+                                        <circle cx="-3.5" cy="0" r="3.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="3.5" cy="0" r="3.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="0" cy="-3.5" r="3.2" fill="#E29891" opacity="0.95" />
+                                        <circle cx="0" cy="3.5" r="3.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="0" cy="0" r="1.8" fill="#FFE5A3" />
+                                    </g>
+
+                                    <!-- Flower Along Upward Branch -->
+                                    <g transform="translate(82, 44)">
+                                        <circle cx="-3.5" cy="0" r="3.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="3.5" cy="0" r="3.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="0" cy="-3.5" r="3.2" fill="#E29891" opacity="0.95" />
+                                        <circle cx="0" cy="3.5" r="3.2" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="0" cy="0" r="1.8" fill="#FFE5A3" />
+                                    </g>
+
+                                    <!-- Flower Inner Branch -->
+                                    <g transform="translate(52, 66)">
+                                        <circle cx="-3" cy="0" r="2.8" fill="#E29891" opacity="0.95" />
+                                        <circle cx="3" cy="0" r="2.8" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="0" cy="-3" r="2.8" fill="#E8A6A0" opacity="0.95" />
+                                        <circle cx="0" cy="3" r="2.8" fill="#D98B83" opacity="0.95" />
+                                        <circle cx="0" cy="0" r="1.5" fill="#FFE5A3" />
+                                    </g>
+
+                                    <!-- Delicate Buds -->
+                                    <circle cx="8" cy="109" r="2" fill="#E29891" />
+                                    <circle cx="59" cy="13" r="2" fill="#E29891" />
+                                    <circle cx="54" cy="40" r="1.8" fill="#E29891" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="env-panel-face env-panel-back">
+                            <div class="env-panel-back-lining"></div>
+                        </div>
+                    </div><!-- /.env-panel-right -->
+
+                    <!-- SMALL ELEGANT ROUND GOLD SEAL WITH K & S (Centered over the seam) -->
+                    <div class="env-seal" id="env-seal" aria-hidden="true">
+                        <svg class="env-seal-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="sealMoltenGrad" cx="35%" cy="32%" r="65%">
+                                    <stop offset="0%" stop-color="#FFF7D4" />
+                                    <stop offset="22%" stop-color="#E8C665" />
+                                    <stop offset="55%" stop-color="#D6BD83" />
+                                    <stop offset="85%" stop-color="#936F22" />
+                                    <stop offset="100%" stop-color="#543A0C" />
+                                </radialGradient>
+                                <radialGradient id="sealInnerBedGrad" cx="42%" cy="40%" r="58%">
+                                    <stop offset="0%" stop-color="#F2D783" />
+                                    <stop offset="65%" stop-color="#D6BD83" />
+                                    <stop offset="100%" stop-color="#84601A" />
+                                </radialGradient>
+                                <filter id="sealDepthGlow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#000000"
+                                        flood-opacity="0.55" />
+                                </filter>
+                            </defs>
+
+                            <!-- Organic Molten Wax Rim -->
+                            <path d="M 50 4 
+                                     C 62 3, 74 9, 82 17 
+                                     C 90 26, 96 38, 95 50 
+                                     C 94 63, 89 75, 79 84 
+                                     C 69 92, 55 96, 42 94 
+                                     C 30 92, 19 86, 12 76 
+                                     C 5 66, 4 52, 7 40 
+                                     C 10 28, 18 16, 29 10 
+                                     C 38 4, 44 4, 50 4 Z" fill="url(#sealMoltenGrad)" filter="url(#sealDepthGlow)" />
+
+                            <!-- Inner Circular Stamp Bed -->
+                            <circle cx="50" cy="50" r="37.5" stroke="#7A5412" stroke-width="0.8" opacity="0.6" />
+                            <circle cx="50" cy="50" r="36" stroke="#FFF7D6" stroke-width="0.8" opacity="0.8" />
+                            <circle cx="50" cy="50" r="34.5" fill="url(#sealInnerBedGrad)" />
+
+                            <!-- Delicate Stamped Groove & Beaded Ring -->
+                            <circle cx="50" cy="50" r="31.5" stroke="#8E691E" stroke-width="1.1"
+                                stroke-dasharray="3.2 1.6" />
+                            <circle cx="50" cy="50" r="28" stroke="#68470E" stroke-width="0.6" opacity="0.75" />
+
+                            <!-- Top Foliage Sprig -->
+                            <path d="M 50 25 C 49 27 46 29 43 29 M 50 25 C 51 27 54 29 57 29 M 50 24 L 50 28"
+                                stroke="#533708" stroke-width="0.9" stroke-linecap="round" />
+
+                            <!-- Centered Initials "A & V" in Refined Classical Serif -->
+                            <text x="50" y="52" text-anchor="middle" dominant-baseline="central"
+                                font-family="'Cinzel', 'Playfair Display', serif" font-size="14.5" font-weight="700"
+                                fill="#422704" letter-spacing="1.5">A &amp; V</text>
+
+                            <!-- Bottom Mirrored Foliage Sprig -->
+                            <path d="M 50 75 C 49 73 46 71 43 71 M 50 75 C 51 73 54 71 57 71 M 50 76 L 50 72"
+                                stroke="#533708" stroke-width="0.9" stroke-linecap="round" />
+                        </svg>
+                    </div><!-- /.env-seal -->
+
+                </div><!-- /.env-box -->
+
+            </button><!-- /#env-clickable -->
+
+            <!-- Elegant Gold "Tap to open" Text and Divider (Matches Reference Image) -->
+            <div class="env-tap-hint" aria-hidden="true">
+                <span class="env-tap-text">Tap to open</span>
+                <div class="env-tap-divider">
+                    <span class="env-tap-line"></span>
+                    <span class="env-tap-glyph">├ó┬¥ΓÇô</span>
+                    <span class="env-tap-line"></span>
+                </div>
+            </div>
+
+        </div><!-- /.env-scene -->
+
+    </div><!-- /#envelope-intro -->
+
+    <!-- Main Full-Screen Vertical Scroll Container -->
+    <main class="invitation-container" id="invitation-container">
+
+        <!-- ===================================================================
+             SCREEN 1: WELCOME COVER
+             =================================================================== -->
+        <section class="invitation-screen screen-active" id="screen-welcome">
+            <!-- Full-Page Background Image -->
+            <div class="page1-bg-wrapper">
+                <img src="assets/images/ii.jpeg" alt="Traditional Wedding Invitation Artwork" class="page1-bg-img">
+            </div>
+
+            <!-- Centered Text Overlay within the red invitation panel -->
+            <div class="page1-text-overlay">
+                <h2 class="page1-invited-heading">YOUΓÇÖRE INVITED</h2>
+                <p class="page1-left-subtext">To Witness a Forever of Love</p>
+                <p class="page1-invite-intro">Join Us for a Beautiful Beginning</p>
+                <p class="page1-invite-line4">As Two Hearts Become One</p>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SCREEN 2: COUPLE INTRODUCTION (PAGE 2)
+             =================================================================== -->
+        <section class="invitation-screen" id="screen-couple">
+            <!-- Full-Page Background Artwork (object-fit: contain ├óΓé¼ΓÇ¥ entire illustration shown) -->
+            <div class="page2-bg-wrapper">
+                <img src="assets/images/page 21.jpeg" alt="Traditional Wedding Invitation Artwork" class="page2-bg-img">
+            </div>
+
+            <!-- SINGLE UNIFIED TEXT BLOCK ├óΓé¼ΓÇ¥ centred below the two hands
+                 Order: intro line ├óΓÇáΓÇÖ groom parent ├óΓÇáΓÇÖ names ├óΓÇáΓÇÖ bride parent (Bride's version) -->
+            <div class="page2-lower-left-text anim-fade-up">
+                <p class="page2-invitation-sub">Together with their families</p>
+                <p class="page2-parents-text conf-groom-parents">Son of Sri Challa Venkata Swamy &amp; Smt. Sarala</p>
+
+                <div class="page2-couple-wrapper">
+                    <h1 class="page2-groom-name conf-groom-name">Vivek</h1>
+                    <div class="page2-with-text">weds</div>
+                    <h1 class="page2-bride-name conf-bride-name">Arshitha</h1>
+                </div>
+
+                <div class="page2-footer-text">
+                    <p class="page2-parents-text conf-bride-parents">Daughter of Sri Mallu &amp; Smt. Mallu
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SCREEN 3: SCRATCH TO REVEAL
+             =================================================================== -->
+        <section class="invitation-screen" id="screen-scratch">
+            <div class="page3-frame">
+                <!-- Page 3 Artwork showing the couple's walking feet -->
+                <img src="assets/images/page 3.jpeg" alt="Wedding Invitation Artwork" class="page3-bg-img">
+
+                <!-- Scratch card overlay placed directly over the image, immediately below the legs -->
+                <div class="page3-scratch-overlay anim-fade-up delay-1">
+                    <p class="serif-title page3-announcement-title">Special Announcement</p>
+                    <p class="serif-sub page3-announcement-sub">Scratch the card below to reveal the date</p>
+
+                    <div class="scratch-card-container anim-scale-in delay-2" id="scratch-card-container">
+                        <div class="scratch-revealed-content">
+                            <h2 class="serif-title conf-wedding-date"
+                                style="font-size: 1.5rem; color: var(--color-maroon);">1st July 2026</h2>
+                        </div>
+                        <canvas id="scratch-canvas"></canvas>
+                    </div>
+
+                    <p class="page3-save-the-date">Save the Date</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hidden countdown elements so JS does not break -->
+        <span id="count-days" style="display:none;"></span>
+        <span id="count-hours" style="display:none;"></span>
+        <span id="count-minutes" style="display:none;"></span>
+        <span id="count-seconds" style="display:none;"></span>
+
+        <!-- ===================================================================
+             EVENT PAGE 1 ├óΓé¼ΓÇ¥ HALDI
+             =================================================================== -->
+        <section class="invitation-screen event-page-screen event-theme-haldi" id="screen-haldi">
+            <div class="event-page-header anim-fade-up">
+                <p class="events-eyebrow">Wedding Event &middot; 1 of 5</p>
+                <div class="events-divider"></div>
+            </div>
+            <div class="event-flip-card" tabindex="0" role="button" aria-label="Haldi Celebration ├óΓé¼ΓÇ¥ Tap to flip">
+                <div class="event-flip-card-inner">
+                    <div class="event-card-front">
+                        <img src="assets/images/groom.jpeg" alt="Haldi Celebration" class="event-card-img"
+                            loading="lazy">
+                        <div class="event-card-title-overlay event-title-haldi">
+                            <h2 class="event-card-title-text">HALDI</h2>
+                        </div>
+                    </div>
+                    <div class="event-card-back">
+                        <div class="event-card-back-decor"></div>
+                        <div class="event-card-back-content">
+                            <span class="event-back-auspicious">&#10022; &#2384; &#10022;</span>
+                            <span class="event-back-eyebrow">Auspicious Ceremony</span>
+                            <h3 class="event-back-title">Chapra Pooja & Haldi</h3>
+                            <div class="event-back-divider"></div>
+                            <div class="event-back-info-block">
+                                <div class="event-back-row">
+                                    <span class="event-back-label">DATE</span>
+                                    <span class="event-back-val" id="haldi-date">Thursday, 12th November 2026</span>
+                                </div>
+                                <div class="event-back-row">
+                                    <span class="event-back-label">TIME</span>
+                                    <span class="event-back-val" id="haldi-time">10:30 AM onwards</span>
+                                </div>
+
+                                <div class="event-back-row">
+                                    <span class="event-back-label">VENUE</span>
+                                    <span class="event-back-val" id="haldi-venue">Wedding Home</span>
+                                </div>
+                            </div>
+                            <div class="event-back-divider-sub"></div>
+                            <p class="event-back-tagline" id="haldi-tagline">A vibrant celebration of turmeric,
+                                blessings and joy</p>
+                            <span class="event-back-flip-return">&#x21BB; Tap to see photo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="event-flip-hint">Touch to flip</p>
+            <nav class="event-page-nav" aria-label="Event navigation">
+                <span class="event-nav-placeholder"></span>
+                <a class="event-nav-next" href="#screen-jodihaldi"
+                    onclick="document.getElementById('screen-jodihaldi').scrollIntoView({behavior:'smooth'});return false;">Jodi
+                    Haldi
+                    &rarr;</a>
+            </nav>
+        </section>
+
+
+        <!-- =================================================================== 
+             EVENT PAGE 2 ├óΓé¼ΓÇ¥ JODI HALDI
+             =================================================================== -->
+
+        <!-- ===================================================================
+             EVENT PAGE 2 ├óΓé¼ΓÇ¥ JODI HALDI
+             =================================================================== -->
+
+        <section class="invitation-screen event-page-screen event-theme-jodihaldi" id="screen-jodihaldi">
+            <div class="event-page-header anim-fade-up">
+                <p class="events-eyebrow">Wedding Event &middot; 2 of 5</p>
+                <div class="events-divider"></div>
+            </div>
+            <div class="event-flip-card" tabindex="0" role="button" aria-label="Jodi Haldi Celebration ├óΓé¼ΓÇ¥ Tap to flip">
+                <div class="event-flip-card-inner">
+                    <div class="event-card-front">
+                        <img src="assets/images/i (7).jpeg" alt="Jodi Haldi Celebration" class="event-card-img"
+                            loading="lazy">
+                        <div class="event-card-title-overlay event-title-jodihaldi">
+                            <h2 class="event-card-title-text">JODI HALDI</h2>
+                        </div>
+                    </div>
+                    <div class="event-card-back">
+                        <div class="event-card-back-decor"></div>
+                        <div class="event-card-back-content">
+                            <span class="event-back-auspicious">&#10022; &#2384; &#10022;</span>
+                            <span class="event-back-eyebrow">Auspicious Ceremony</span>
+                            <h3 class="event-back-title">Jodi Haldi</h3>
+                            <div class="event-back-divider"></div>
+                            <div class="event-back-info-block">
+                                <div class="event-back-row">
+                                    <span class="event-back-label">DATE</span>
+                                    <span class="event-back-val" id="jodihaldi-date">Sunday, 15th November 2026</span>
+                                </div>
+                                <div class="event-back-row">
+                                    <span class="event-back-label">TIME</span>
+                                    <span class="event-back-val" id="jodihaldi-time">8:00 AM ├óΓé¼ΓÇ£ 11:00 AM</span>
+                                </div>
+
+                                <div class="event-back-row">
+                                    <span class="event-back-label">VENUE</span>
+                                    <a href="https://www.google.com/maps?q=Alila+Meadows,+19/5,+Bilijaji,+Hesaraghatta,+Bengaluru,+Karnataka+560088&amp;ftid=0x3bae23007780365b:0x9bb463de8255f9cc&amp;entry=gps&amp;shh=CAE&amp;lucs=,94297699,100826475,94231188,94280568,100821559,47071704,94218641,94282134,94286869,100820247,100822504&amp;g_ep=CAISEjI2LjMzLjEuOTYxODkxNDMyMBgAIIgnKmcsOTQyOTc2OTksMTAwODI2NDc1LDk0MjMxMTg4LDk0MjgwNTY4LDEwMDgyMTU1OSw0NzA3MTcwNCw5NDIxODY0MSw5NDI4MjEzNCw5NDI4Njg2OSwxMDA4MjAyNDcsMTAwODIyNTA0QgJJTg%3D%3D&amp;skid=0ed668c7-2845-4617-ba2a-625ae33ab2d4&amp;g_st=iw"
+                                        target="_blank" rel="noopener" class="event-venue-link"
+                                        id="jodihaldi-venue">ALILA MEADOWS AND SK FARMS</a>
+                                    <a href="https://www.google.com/maps?q=Alila+Meadows,+19/5,+Bilijaji,+Hesaraghatta,+Bengaluru,+Karnataka+560088&amp;ftid=0x3bae23007780365b:0x9bb463de8255f9cc&amp;entry=gps&amp;shh=CAE&amp;lucs=,94297699,100826475,94231188,94280568,100821559,47071704,94218641,94282134,94286869,100820247,100822504&amp;g_ep=CAISEjI2LjMzLjEuOTYxODkxNDMyMBgAIIgnKmcsOTQyOTc2OTksMTAwODI2NDc1LDk0MjMxMTg4LDk0MjgwNTY4LDEwMDgyMTU1OSw0NzA3MTcwNCw5NDIxODY0MSw5NDI4MjEzNCw5NDI4Njg2OSwxMDA4MjAyNDcsMTAwODIyNTA0QgJJTg%3D%3D&amp;skid=0ed668c7-2845-4617-ba2a-625ae33ab2d4&amp;g_st=iw"
+                                        target="_blank" rel="noopener" class="event-venue-link event-venue-link-sub"
+                                        id="jodihaldi-venue-address">19/5, Bilijaji, Hesaraghatta, Bengaluru, Karnataka
+                                        ├óΓé¼ΓÇ£ 560088</a>
+                                </div>
+                            </div>
+                            <div class="event-back-divider-sub"></div>
+                            <p class="event-back-tagline" id="jodihaldi-tagline">A joyous haldi celebration together
+                                with love and laughter</p>
+                            <span class="event-back-flip-return">&#x21BB; Tap to see photo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="event-flip-hint">Touch to flip</p>
+            <nav class="event-page-nav" aria-label="Event navigation">
+                <a class="event-nav-prev" href="#screen-haldi"
+                    onclick="document.getElementById('screen-haldi').scrollIntoView({behavior:'smooth'});return false;">&larr;
+                    Haldi</a>
+                <a class="event-nav-next" href="#screen-sangeeth"
+                    onclick="document.getElementById('screen-sangeeth').scrollIntoView({behavior:'smooth'});return false;">Sangeeth
+                    &rarr;</a>
+            </nav>
+        </section>
+
+        <!-- ===================================================================
+             EVENT PAGE 6 ├óΓé¼ΓÇ¥ SANGEETH
+             =================================================================== -->
+        <section class="invitation-screen event-page-screen event-theme-sangeeth" id="screen-sangeeth">
+            <div class="event-page-header anim-fade-up">
+                <p class="events-eyebrow">Wedding Event &middot; 3 of 5</p>
+                <div class="events-divider"></div>
+            </div>
+            <div class="event-flip-card" tabindex="0" role="button" aria-label="Sangeeth Celebration ├óΓé¼ΓÇ¥ Tap to flip">
+                <div class="event-flip-card-inner">
+                    <div class="event-card-front">
+                        <img src="assets/images/sangeeth1.jpeg" alt="Sangeeth Celebration" class="event-card-img"
+                            loading="lazy">
+                        <div class="event-card-title-overlay event-title-sangeeth">
+                            <h2 class="event-card-title-text">SANGEETH</h2>
+                        </div>
+                    </div>
+                    <div class="event-card-back">
+                        <div class="event-card-back-decor"></div>
+                        <div class="event-card-back-content">
+                            <span class="event-back-auspicious">&#10022; &#2384; &#10022;</span>
+                            <span class="event-back-eyebrow">Musical Evening</span>
+                            <h3 class="event-back-title">Sangeeth</h3>
+                            <div class="event-back-divider"></div>
+                            <div class="event-back-info-block">
+                                <div class="event-back-row">
+                                    <span class="event-back-label">DATE</span>
+                                    <span class="event-back-val" id="sangeeth-date">Sunday, 15th November 2026</span>
+                                </div>
+                                <div class="event-back-row">
+                                    <span class="event-back-label">TIME</span>
+                                    <span class="event-back-val" id="sangeeth-time">1:00 PM ├óΓé¼ΓÇ£ 3:00 PM</span>
+                                </div>
+
+                                <div class="event-back-row">
+                                    <span class="event-back-label">VENUE</span>
+                                    <a href="https://www.google.com/maps?q=Alila+Meadows,+19/5,+Bilijaji,+Hesaraghatta,+Bengaluru,+Karnataka+560088&amp;ftid=0x3bae23007780365b:0x9bb463de8255f9cc&amp;entry=gps&amp;shh=CAE&amp;lucs=,94297699,100826475,94231188,94280568,100821559,47071704,94218641,94282134,94286869,100820247,100822504&amp;g_ep=CAISEjI2LjMzLjEuOTYxODkxNDMyMBgAIIgnKmcsOTQyOTc2OTksMTAwODI2NDc1LDk0MjMxMTg4LDk0MjgwNTY4LDEwMDgyMTU1OSw0NzA3MTcwNCw5NDIxODY0MSw5NDI4MjEzNCw5NDI4Njg2OSwxMDA4MjAyNDcsMTAwODIyNTA0QgJJTg%3D%3D&amp;skid=0ed668c7-2845-4617-ba2a-625ae33ab2d4&amp;g_st=iw"
+                                        target="_blank" rel="noopener" class="event-venue-link"
+                                        id="sangeeth-venue">ALILA MEADOWS AND SK FARMS</a>
+                                    <a href="https://www.google.com/maps?q=Alila+Meadows,+19/5,+Bilijaji,+Hesaraghatta,+Bengaluru,+Karnataka+560088&amp;ftid=0x3bae23007780365b:0x9bb463de8255f9cc&amp;entry=gps&amp;shh=CAE&amp;lucs=,94297699,100826475,94231188,94280568,100821559,47071704,94218641,94282134,94286869,100820247,100822504&amp;g_ep=CAISEjI2LjMzLjEuOTYxODkxNDMyMBgAIIgnKmcsOTQyOTc2OTksMTAwODI2NDc1LDk0MjMxMTg4LDk0MjgwNTY4LDEwMDgyMTU1OSw0NzA3MTcwNCw5NDIxODY0MSw5NDI4MjEzNCw5NDI4Njg2OSwxMDA4MjAyNDcsMTAwODIyNTA0QgJJTg%3D%3D&amp;skid=0ed668c7-2845-4617-ba2a-625ae33ab2d4&amp;g_st=iw"
+                                        target="_blank" rel="noopener" class="event-venue-link event-venue-link-sub"
+                                        id="sangeeth-venue-address">19/5, Bilijaji, Hesaraghatta, Bengaluru, Karnataka
+                                        ├óΓé¼ΓÇ£
+                                        560088</a>
+                                </div>
+                            </div>
+                            <div class="event-back-divider-sub"></div>
+                            <p class="event-back-tagline" id="sangeeth-tagline">An evening of dance, music and grand
+                                celebration</p>
+                            <span class="event-back-flip-return">&#x21BB; Tap to see photo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="event-flip-hint">Touch to flip</p>
+            <nav class="event-page-nav" aria-label="Event navigation">
+                <a class="event-nav-prev" href="#screen-jodihaldi"
+                    onclick="document.getElementById('screen-jodihaldi').scrollIntoView({behavior:'smooth'});return false;">&larr;
+                    Jodi Haldi</a>
+                <a class="event-nav-next" href="#screen-reception"
+                    onclick="document.getElementById('screen-reception').scrollIntoView({behavior:'smooth'});return false;">Reception
+                    &rarr;</a>
+            </nav>
+        </section>
+
+        <!-- ===================================================================
+             EVENT PAGE 7 ├óΓé¼ΓÇ¥ RECEPTION
+             =================================================================== -->
+        <section class="invitation-screen event-page-screen event-theme-reception" id="screen-reception">
+            <div class="event-page-header anim-fade-up">
+                <p class="events-eyebrow">Wedding Event &middot; 4 of 5</p>
+                <div class="events-divider"></div>
+            </div>
+            <div class="event-flip-card" tabindex="0" role="button" aria-label="Reception Gala ├óΓé¼ΓÇ¥ Tap to flip">
+                <div class="event-flip-card-inner">
+                    <div class="event-card-front">
+                        <img src="assets/images/i (10).jpeg" alt="Reception Gala" class="event-card-img" loading="lazy">
+                        <div class="event-card-title-overlay event-title-reception">
+                            <h2 class="event-card-title-text">RECEPTION</h2>
+                        </div>
+                    </div>
+                    <div class="event-card-back">
+                        <div class="event-card-back-decor"></div>
+                        <div class="event-card-back-content">
+                            <span class="event-back-auspicious">&#10022; &#2384; &#10022;</span>
+                            <span class="event-back-eyebrow">Grand Celebration</span>
+                            <h3 class="event-back-title">Reception</h3>
+                            <div class="event-back-divider"></div>
+                            <div class="event-back-info-block">
+                                <div class="event-back-row">
+                                    <span class="event-back-label">DATE</span>
+                                    <span class="event-back-val" id="reception-date">Sunday, 15th November 2026</span>
+                                </div>
+                                <div class="event-back-row">
+                                    <span class="event-back-label">TIME</span>
+                                    <span class="event-back-val" id="reception-time">6:30 PM onwards</span>
+                                </div>
+
+                                <div class="event-back-row">
+                                    <span class="event-back-label">VENUE</span>
+                                    <a href="https://www.google.com/maps?q=Alila+Meadows,+19/5,+Bilijaji,+Hesaraghatta,+Bengaluru,+Karnataka+560088&amp;ftid=0x3bae23007780365b:0x9bb463de8255f9cc&amp;entry=gps&amp;shh=CAE&amp;lucs=,94297699,100826475,94231188,94280568,100821559,47071704,94218641,94282134,94286869,100820247,100822504&amp;g_ep=CAISEjI2LjMzLjEuOTYxODkxNDMyMBgAIIgnKmcsOTQyOTc2OTksMTAwODI2NDc1LDk0MjMxMTg4LDk0MjgwNTY4LDEwMDgyMTU1OSw0NzA3MTcwNCw5NDIxODY0MSw5NDI4MjEzNCw5NDI4Njg2OSwxMDA4MjAyNDcsMTAwODIyNTA0QgJJTg%3D%3D&amp;skid=0ed668c7-2845-4617-ba2a-625ae33ab2d4&amp;g_st=iw"
+                                        target="_blank" rel="noopener" class="event-venue-link" id="reception-venue">
+                                        <span class="event-venue-img-btn">
+                                            <img src="assets/images/location-banner.jpg"
+                                                alt="View on Google Maps ├óΓé¼ΓÇ¥ ALILA MEADOWS AND SK FARMS">
+                                        </span>
+                                        <span class="event-venue-link-sub">ALILA MEADOWS AND SK FARMS ├é┬╖ Hesaraghatta,
+                                            Bengaluru</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="event-back-divider-sub"></div>
+                            <p class="event-back-tagline" id="reception-tagline">An evening of celebration and grand
+                                feast</p>
+                            <span class="event-back-flip-return">&#x21BB; Tap to see photo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="event-flip-hint">Touch to flip</p>
+            <nav class="event-page-nav" aria-label="Event navigation">
+                <a class="event-nav-prev" href="#screen-sangeeth"
+                    onclick="document.getElementById('screen-sangeeth').scrollIntoView({behavior:'smooth'});return false;">&larr;
+                    Sangeeth</a>
+                <a class="event-nav-next" href="#screen-muhurtham"
+                    onclick="document.getElementById('screen-muhurtham').scrollIntoView({behavior:'smooth'});return false;">Muhurtham
+                    &rarr;</a>
+            </nav>
+        </section>
+
+        <!-- ===================================================================
+             EVENT PAGE 8 ├óΓé¼ΓÇ¥ MUHURTHAM
+             =================================================================== -->
+        <section class="invitation-screen event-page-screen event-theme-muhurtham" id="screen-muhurtham">
+            <div class="event-page-header anim-fade-up">
+                <p class="events-eyebrow">Wedding Event &middot; 5 of 5</p>
+                <div class="events-divider"></div>
+            </div>
+            <div class="event-flip-card" tabindex="0" role="button" aria-label="Wedding Muhurtham ├óΓé¼ΓÇ¥ Tap to flip">
+                <div class="event-flip-card-inner">
+                    <div class="event-card-front">
+                        <img src="assets/images/muhurtham.jpeg" alt="Wedding Muhurtham" class="event-card-img"
+                            loading="lazy">
+                        <div class="event-card-title-overlay event-title-muhurtham">
+                            <h2 class="event-card-title-text">MUHURTHAM</h2>
+                        </div>
+                    </div>
+                    <div class="event-card-back">
+                        <div class="event-card-back-decor"></div>
+                        <div class="event-card-back-content">
+                            <span class="event-back-auspicious">&#10022; &#2384; &#10022;</span>
+                            <span class="event-back-eyebrow">Auspicious Ceremony</span>
+                            <h3 class="event-back-title">Muhurtham</h3>
+                            <div class="event-back-divider"></div>
+                            <div class="event-back-info-block">
+                                <div class="event-back-row">
+                                    <span class="event-back-label">DATE</span>
+                                    <span class="event-back-val" id="muhurtham-date">Monday, 16th November 2026</span>
+                                </div>
+                                <div class="event-back-row">
+                                    <span class="event-back-label">TIME</span>
+                                    <span class="event-back-val" id="muhurtham-time">Muhurtham ├óΓé¼ΓÇ£ 9:30 AM</span>
+                                </div>
+
+                                <div class="event-back-row">
+                                    <span class="event-back-label">VENUE</span>
+                                    <a href="https://www.google.com/maps?q=Alila+Meadows,+19/5,+Bilijaji,+Hesaraghatta,+Bengaluru,+Karnataka+560088&amp;ftid=0x3bae23007780365b:0x9bb463de8255f9cc&amp;entry=gps&amp;shh=CAE&amp;lucs=,94297699,100826475,94231188,94280568,100821559,47071704,94218641,94282134,94286869,100820247,100822504&amp;g_ep=CAISEjI2LjMzLjEuOTYxODkxNDMyMBgAIIgnKmcsOTQyOTc2OTksMTAwODI2NDc1LDk0MjMxMTg4LDk0MjgwNTY4LDEwMDgyMTU1OSw0NzA3MTcwNCw5NDIxODY0MSw5NDI4MjEzNCw5NDI4Njg2OSwxMDA4MjAyNDcsMTAwODIyNTA0QgJJTg%3D%3D&amp;skid=0ed668c7-2845-4617-ba2a-625ae33ab2d4&amp;g_st=iw"
+                                        target="_blank" rel="noopener" class="event-venue-link" id="muhurtham-venue">
+                                        <span class="event-venue-img-btn">
+                                            <img src="assets/images/location-banner.jpg"
+                                                alt="View on Google Maps ├óΓé¼ΓÇ¥ ALILA MEADOWS AND SK FARMS">
+                                        </span>
+                                        <span class="event-venue-link-sub">ALILA MEADOWS AND SK FARMS ├é┬╖ Hesaraghatta,
+                                            Bengaluru</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="event-back-divider-sub"></div>
+                            <p class="event-back-tagline" id="muhurtham-tagline">Joining hands in holy matrimony</p>
+                            <span class="event-back-flip-return">&#x21BB; Tap to see photo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="event-flip-hint">Touch to flip</p>
+            <nav class="event-page-nav" aria-label="Event navigation">
+                <a class="event-nav-prev" href="#screen-reception"
+                    onclick="document.getElementById('screen-reception').scrollIntoView({behavior:'smooth'});return false;">&larr;
+                    Reception</a>
+                <a class="event-nav-next" href="#screen-families"
+                    onclick="document.getElementById('screen-families').scrollIntoView({behavior:'smooth'});return false;">Families
+                    &rarr;</a>
+            </nav>
+        </section>
+
+        </section>
+
+        <!-- ===================================================================
+             SCREEN 11: FAMILIES / AWAITING YOUR PRESENCE (imp.jpeg Full Background)
+             =================================================================== -->
+        <section class="invitation-screen" id="screen-families">
+            <div class="families-bg-wrapper">
+                <img src="assets/images/imp.jpeg" alt="Awaiting Your Noble Presence" class="families-bg-img">
+            </div>
+
+            <div class="families-content-overlay">
+                <div class="anim-fade-up delay-1" style="text-align: center;">
+                    <h1 class="script-heading families-heading">Awaiting your noble presence</h1>
+                    <p class="serif-sub families-sub">With blessings and warm wishes</p>
+                </div>
+
+                <div class="anim-fade-up delay-2"
+                    style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                    <h2 class="script-heading families-subheading">The Families</h2>
+
+                    <div class="family-box">
+                        <p class="sans-meta" id="groom-family-title" style="color: var(--color-gold-dark);">GROOM'S
+                            FAMILY
+                        </p>
+                        <p class="serif-title" id="groom-family-names"
+                            style="color: var(--color-maroon); font-size: 1.1rem; margin-top: 4px;">Sri Challa Venkata
+                            Swamy
+                            &amp; Family</p>
+                    </div>
+
+                    <div class="family-box">
+                        <p class="sans-meta" id="bride-family-title" style="color: var(--color-gold-dark);">BRIDE'S
+                            FAMILY
+                        </p>
+                        <p class="serif-title" id="bride-family-names"
+                            style="color: var(--color-maroon); font-size: 1.1rem; margin-top: 4px;">Sri Vam Mallu &amp;
+                            Family</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SCREEN 10 & 11: VENUE, MAP & DARK VELVET CLOSING FOOTER
+             =================================================================== -->
+        <section class="invitation-screen" id="screen-venue">
+            <div class="anim-fade-up delay-1">
+                <h1 class="script-heading">Where We Celebrate</h1>
+                <h2 class="serif-title" id="venue-name" style="color: var(--color-maroon); margin-top: 0.5rem;">ALILA
+                    MEADOWS AND SK FARMS</h2>
+                <p class="serif-sub" id="venue-address" style="font-size: 0.95rem; max-width: 320px;">19/5, Bilijaji,
+                    Hesaraghatta, Bengaluru, Karnataka ├óΓé¼ΓÇ£ 560088</p>
+            </div>
+
+            <!-- Interactive Location Illustration Container -->
+            <div class="map-embed-container anim-scale-in delay-2">
+                <a href="https://www.google.com/maps?q=Alila+Meadows,+19/5,+Bilijaji,+Hesaraghatta,+Bengaluru,+Karnataka+560088&amp;ftid=0x3bae23007780365b:0x9bb463de8255f9cc&amp;entry=gps&amp;shh=CAE&amp;lucs=,94297699,100826475,94231188,94280568,100821559,47071704,94218641,94282134,94286869,100820247,100822504&amp;g_ep=CAISEjI2LjMzLjEuOTYxODkxNDMyMBgAIIgnKmcsOTQyOTc2OTksMTAwODI2NDc1LDk0MjMxMTg4LDk0MjgwNTY4LDEwMDgyMTU1OSw0NzA3MTcwNCw5NDIxODY0MSw5NDI4MjEzNCw5NDI4Njg2OSwxMDA4MjAyNDcsMTAwODIyNTA0QgJJTg%3D%3D&amp;skid=0ed668c7-2845-4617-ba2a-625ae33ab2d4&amp;g_st=iw"
+                    target="_blank" rel="noopener" aria-label="Open Alila Meadows, Hesaraghatta on Google Maps"
+                    class="map-illustration-link">
+                    <img src="assets/images/location-banner.jpg"
+                        alt="Wedding Venue Location ├óΓé¼ΓÇ¥ ALILA MEADOWS AND SK FARMS, Bengaluru"
+                        class="location-banner-img">
+                </a>
+            </div>
+
+            <button id="get-directions-btn" class="btn-golden anim-fade-up delay-3">≡ƒôì GET
+                DIRECTIONS</button>
+
+            <!-- Travel Note Section -->
+            <div class="travel-note-card anim-fade-up delay-3">
+                <h3 class="travel-note-title">A Little Note on Travel ≡ƒÜî</h3>
+                <p class="travel-note-desc">We've arranged a bus from the Wedding Home to the wedding venue for your
+                    convenience.</p>
+                <div class="travel-note-details">
+                    <p class="travel-note-row"><strong>Departure:</strong> Sunday at 5:00 PM</p>
+                    <p class="travel-note-row"><strong>Pick-up Point:</strong> 15, 5th Cross, SMR Layout, Kalkere, Hormavu ΓÇô 560043</p>
+                </div>
+                <p class="travel-note-closing">We look forward to celebrating with you!</p>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SCREEN 14: SEPARATE FINAL PAGE ├óΓé¼ΓÇ¥ CREATOR SIGNATURE
+             =================================================================== -->
+        <section class="invitation-screen" id="screen-closing">
+            <div class="closing-signature-card anim-fade-up">
+                <!-- Delicate Corner Botanical Decorations in Antique Gold & Muted Blush -->
+                <svg class="closing-corner-botanical closing-botanical-tl" viewBox="0 0 80 80" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M 6 6 C 18 10, 30 16, 44 14 C 54 12, 62 16, 72 14" stroke="#D6BD83" stroke-width="1.2"
+                        stroke-linecap="round" />
+                    <path d="M 10 6 C 12 18, 10 32, 14 46 C 17 56, 22 64, 30 74" stroke="#D6BD83" stroke-width="1.2"
+                        stroke-linecap="round" />
+                    <path d="M 22 9 C 25 7, 28 9, 27 13 C 24 14, 21 11, 22 9 Z" fill="#DFC07C" />
+                    <path d="M 38 11 C 42 9, 44 13, 42 16 C 38 17, 36 14, 38 11 Z" fill="#D6BD83" />
+                    <path d="M 9 22 C 7 19, 10 16, 13 18 C 14 21, 11 24, 9 22 Z" fill="#D6BD83" />
+                    <path d="M 11 38 C 8 35, 11 32, 14 34 C 15 37, 13 40, 11 38 Z" fill="#DFC07C" />
+                    <g transform="translate(20, 20)">
+                        <circle cx="-3" cy="0" r="2.8" fill="#D98B83" opacity="0.9" />
+                        <circle cx="3" cy="0" r="2.8" fill="#D98B83" opacity="0.9" />
+                        <circle cx="0" cy="-3" r="2.8" fill="#E29891" opacity="0.9" />
+                        <circle cx="0" cy="3" r="2.8" fill="#D98B83" opacity="0.9" />
+                        <circle cx="0" cy="0" r="1.3" fill="#FFE5A3" />
+                    </g>
+                </svg>
+
+                <svg class="closing-corner-botanical closing-botanical-br" viewBox="0 0 80 80" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M 6 6 C 18 10, 30 16, 44 14 C 54 12, 62 16, 72 14" stroke="#D6BD83" stroke-width="1.2"
+                        stroke-linecap="round" />
+                    <path d="M 10 6 C 12 18, 10 32, 14 46 C 17 56, 22 64, 30 74" stroke="#D6BD83" stroke-width="1.2"
+                        stroke-linecap="round" />
+                    <path d="M 22 9 C 25 7, 28 9, 27 13 C 24 14, 21 11, 22 9 Z" fill="#DFC07C" />
+                    <path d="M 38 11 C 42 9, 44 13, 42 16 C 38 17, 36 14, 38 11 Z" fill="#D6BD83" />
+                    <path d="M 9 22 C 7 19, 10 16, 13 18 C 14 21, 11 24, 9 22 Z" fill="#D6BD83" />
+                    <path d="M 11 38 C 8 35, 11 32, 14 34 C 15 37, 13 40, 11 38 Z" fill="#DFC07C" />
+                    <g transform="translate(20, 20)">
+                        <circle cx="-3" cy="0" r="2.8" fill="#D98B83" opacity="0.9" />
+                        <circle cx="3" cy="0" r="2.8" fill="#D98B83" opacity="0.9" />
+                        <circle cx="0" cy="-3" r="2.8" fill="#E29891" opacity="0.9" />
+                        <circle cx="0" cy="3" r="2.8" fill="#D98B83" opacity="0.9" />
+                        <circle cx="0" cy="0" r="1.3" fill="#FFE5A3" />
+                    </g>
+                </svg>
+
+                <p class="closing-with-love">With love,</p>
+                <div class="closing-divider-accent" aria-hidden="true"></div>
+                <p class="closing-credit">Designed &amp; Created with Love</p>
+                <div class="closing-names-list">
+                    <p class="closing-name">Vinod.A</p>
+                    <p class="closing-name">Vikram.A</p>
+                    <p class="closing-name">Blessen Jeziel. V</p>
+                    <p class="closing-name">Vanessa Elaine. V</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JavaScript Files -->
+    <script src="js/envelope.js"></script>
+    <script src="js/config-bride.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/scratch.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
