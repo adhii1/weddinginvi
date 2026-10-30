@@ -58,20 +58,20 @@ class ScratchRevealCard {
         const w = this.canvas.width;
         const h = this.canvas.height;
         
-        // Metallic Gold Foil Gradient
+        // Metallic Champagne Gold Foil Gradient
         const grad = this.ctx.createLinearGradient(0, 0, w, h);
-        grad.addColorStop(0, '#FFE082');
-        grad.addColorStop(0.3, '#FFB300');
-        grad.addColorStop(0.5, '#FFF59D');
-        grad.addColorStop(0.8, '#FFA000');
-        grad.addColorStop(1, '#FF8F00');
+        grad.addColorStop(0, '#F9E8BF');
+        grad.addColorStop(0.3, '#DFC486');
+        grad.addColorStop(0.5, '#FFF8E6');
+        grad.addColorStop(0.8, '#C9A45C');
+        grad.addColorStop(1, '#B8974B');
 
         this.ctx.fillStyle = grad;
         this.ctx.fillRect(0, 0, w, h);
 
-        // Golden sparkles & text
-        this.ctx.fillStyle = '#6D4C41';
-        this.ctx.font = 'bold 14px Cinzel, serif';
+        // Subtle champagne sparkles & readable English text
+        this.ctx.fillStyle = '#2A3A2E';
+        this.ctx.font = '600 13px Poppins, sans-serif';
         this.ctx.textAlign = 'center';
         this.ctx.textBaseline = 'middle';
         this.ctx.fillText('✦ SCRATCH TO REVEAL ✦', w / 2, h / 2);

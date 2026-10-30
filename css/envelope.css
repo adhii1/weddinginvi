@@ -1,19 +1,18 @@
 /* ==========================================================================
-   ENVELOPE INTRO OVERLAY
+   ENVELOPE INTRO OVERLAY — SAGE GREEN + CHAMPAGNE GOLD + ROSE GOLD PALETTE
    Closed Wedding Envelope — Double-Door Gatefold Opening
-   - Matches reference image (left side):
-     * Closed state: Tall portrait burgundy/red envelope (#4B0712 / #8F1428)
-       with fine antique-gold borders (#C9A45C), straight vertical seam,
+   - Coordinated Palette:
+     * Closed state: Tall portrait Sage Green envelope (#5C7564 / #344C3C)
+       with fine champagne-gold borders (#DFC486), straight vertical seam,
        top-left corner floral vine on left door, bottom-right corner floral
-       vine on right door, centered round gold seal with "K & S",
-       dark burgundy background, and elegant gold "Tap to open" text with ── ❖ ──.
+       vine on right door with delicate rose-gold blossoms (#C5838D),
+       centered round molten champagne-gold seal with "V & A",
+       deep atmospheric sage backdrop, and champagne-gold "Tap to open" text with ── ❖ ──.
      * Single-click interaction:
        1. Seal releases.
        2. Left & right doors swing open outward from the center.
-       3. The existing first invitation page is revealed immediately as part
-          of the opening animation.
+       3. The existing first invitation page is revealed immediately.
        4. Visitor lands directly on the existing first page of the invitation.
-       5. Zero intermediate pages, preview cards, or extra screens.
    ========================================================================== */
 
 /* ── 1. Full-viewport overlay ── */
@@ -27,21 +26,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(ellipse at 50% 48%, #3A0610 0%, #250309 50%, #120104 100%);
+    background: radial-gradient(ellipse at 50% 48%, #27382D 0%, #17241C 50%, #0D1510 100%);
     overflow: hidden;
     touch-action: none;
     overscroll-behavior: none;
     transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    direction: ltr !important;
 }
 
-/* Velvet background ambient lighting */
+/* Atmospheric ambient lighting */
 #envelope-intro::before {
     content: '';
     position: absolute;
     width: min(95vw, 700px);
     height: min(95vw, 700px);
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(143, 20, 40, 0.35) 0%, rgba(201, 164, 92, 0.1) 45%, transparent 70%);
+    background: radial-gradient(circle, rgba(110, 135, 116, 0.35) 0%, rgba(223, 196, 134, 0.15) 45%, transparent 70%);
     pointer-events: none;
     z-index: 0;
     animation: envAmbientBreath 5s ease-in-out infinite alternate;
@@ -52,7 +52,7 @@
     100% { transform: scale(1.04); opacity: 1; }
 }
 
-/* Ambient petals & gypsophila in backdrop (Matches photoshoot aesthetic) */
+/* Ambient petals & gypsophila in backdrop — Rose gold & Sage green */
 .env-bg-decorations {
     position: absolute;
     inset: 0;
@@ -64,41 +64,48 @@
 .env-petal {
     position: absolute;
     border-radius: 50% 0 50% 50%;
-    background: linear-gradient(135deg, #7A0D1F 0%, #4B0712 100%);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
     opacity: 0.85;
 }
 
+/* Rose gold accent petal 1 */
 .env-petal-1 {
     top: 22%;
     left: 8%;
     width: 16px;
     height: 24px;
     transform: rotate(-35deg);
+    background: linear-gradient(135deg, #C5838D 0%, #9E5B65 100%);
 }
 
+/* Sage eucalyptus accent petal 2 */
 .env-petal-2 {
     top: 30%;
     right: 9%;
     width: 14px;
     height: 20px;
     transform: rotate(42deg);
+    background: linear-gradient(135deg, #6E8774 0%, #465F4E 100%);
 }
 
+/* Rose gold accent petal 3 */
 .env-petal-3 {
     bottom: 14%;
     left: 10%;
     width: 18px;
     height: 25px;
     transform: rotate(18deg);
+    background: linear-gradient(135deg, #D9949C 0%, #B76E79 100%);
 }
 
+/* Sage eucalyptus accent petal 4 */
 .env-petal-4 {
     bottom: 28%;
     right: 7%;
     width: 15px;
     height: 22px;
     transform: rotate(-55deg);
+    background: linear-gradient(135deg, #829B88 0%, #4A6351 100%);
 }
 
 /* Delicate white gypsophila clusters in corners */
@@ -107,7 +114,7 @@
     width: 90px;
     height: 90px;
     pointer-events: none;
-    opacity: 0.45;
+    opacity: 0.55;
 }
 
 .env-flora-tl {
@@ -183,7 +190,6 @@
 }
 
 /* ── 4. Main Envelope Box (Portrait Proportion) ── */
-/* Portrait aspect-ratio: taller than wide (~1 : 1.54) */
 .env-box {
     position: relative;
     width: min(78vw, calc(68vh * 0.65), 340px);
@@ -192,8 +198,8 @@
     box-shadow:
         0 28px 70px rgba(0, 0, 0, 0.8),
         0 8px 24px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(201, 164, 92, 0.4),
-        0 0 45px rgba(143, 20, 40, 0.35);
+        0 0 0 1px rgba(223, 196, 134, 0.5),
+        0 0 45px rgba(110, 135, 116, 0.35);
     perspective: 1200px;
     transform-style: preserve-3d;
     transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
@@ -209,8 +215,8 @@
 #env-clickable:focus-visible .env-box {
     box-shadow:
         0 32px 85px rgba(0, 0, 0, 0.85),
-        0 0 0 1.5px rgba(223, 192, 124, 0.75),
-        0 0 55px rgba(201, 164, 92, 0.45);
+        0 0 0 1.5px rgba(247, 231, 196, 0.85),
+        0 0 55px rgba(223, 196, 134, 0.45);
 }
 
 /* ── 5. DOUBLE-DOOR GATEFOLD PANELS (Left & Right) ── */
@@ -231,7 +237,7 @@
     left: 0;
     transform-origin: left center;
     border-radius: 4px 0 0 4px;
-    border-right: 1px solid rgba(30, 2, 6, 0.6);
+    border-right: 1px solid rgba(22, 33, 25, 0.6);
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -240,7 +246,7 @@
     right: 0;
     transform-origin: right center;
     border-radius: 0 4px 4px 0;
-    border-left: 1px solid rgba(201, 164, 92, 0.35);
+    border-left: 1px solid rgba(223, 196, 134, 0.45);
     box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -263,23 +269,24 @@
     overflow: hidden;
 }
 
-/* Front Face: Deep burgundy and rich wedding red (#4B0712 / #8F1428) */
+/* Front Face: Premium Sage Green (#5C7564 / #344C3C) */
 .env-panel-front {
-    background: linear-gradient(165deg, #8F1428 0%, #6E0E1F 45%, #4B0712 100%);
-    border: 1px solid rgba(201, 164, 92, 0.65);
+    background: linear-gradient(165deg, #5C7564 0%, #465F4E 45%, #344C3C 100%);
+    border: 1px solid rgba(223, 196, 134, 0.75);
     box-sizing: border-box;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
 
-/* Inner antique-gold rectangular border */
+/* Inner champagne-gold rectangular border */
 .env-panel-frame {
     position: absolute;
     inset: clamp(6px, 1.8vw, 10px);
-    border: 1px solid rgba(201, 164, 92, 0.7);
+    border: 1px solid rgba(223, 196, 134, 0.85);
     border-radius: 2px;
     box-shadow:
-        inset 0 0 0 1px rgba(201, 164, 92, 0.2);
+        inset 0 0 0 1px rgba(223, 196, 134, 0.25),
+        0 0 10px rgba(223, 196, 134, 0.15);
 }
 
 /* Corner Floral Vines */
@@ -316,11 +323,11 @@
 .env-panel-back-lining {
     position: absolute;
     inset: 0;
-    background: linear-gradient(145deg, #5A0A17 0%, #3F060F 100%);
+    background: linear-gradient(145deg, #374E3E 0%, #223428 100%);
     box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.4);
 }
 
-/* ── 6. SMALL ELEGANT ROUND GOLD SEAL (K & S) ── */
+/* ── 6. SMALL ELEGANT ROUND GOLD SEAL (V & A) ── */
 /* Placed directly over the center seam */
 .env-seal {
     position: absolute;
@@ -340,7 +347,7 @@
         filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.65));
     }
     50% {
-        filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 10px rgba(201, 164, 92, 0.45));
+        filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 12px rgba(223, 196, 134, 0.55));
     }
 }
 
@@ -354,7 +361,7 @@
 .env-seal.seal-release {
     transform: translate(-50%, -50%) scale(0.8);
     opacity: 0;
-    filter: drop-shadow(0 0 18px rgba(201, 164, 92, 0.85));
+    filter: drop-shadow(0 0 18px rgba(223, 196, 134, 0.85));
 }
 
 /* ── 7. ELEGANT GOLD "TAP TO OPEN" INSTRUCTION ── */
@@ -373,11 +380,11 @@
 }
 
 .env-tap-text {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
     font-size: clamp(1.05rem, 3.2vw, 1.25rem);
     font-style: italic;
-    color: #DFC07C;
-    letter-spacing: 2px;
+    color: #EAD5A3;
+    letter-spacing: 2.5px;
     text-align: center;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
     animation: tapHintPulse 2.4s ease-in-out infinite;
@@ -399,11 +406,11 @@
 .env-tap-line {
     flex: 1;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #C9A45C, transparent);
+    background: linear-gradient(90deg, transparent, #DFC486, transparent);
 }
 
 .env-tap-glyph {
-    color: #C9A45C;
+    color: #C5838D;
     font-size: 0.65rem;
     line-height: 1;
 }

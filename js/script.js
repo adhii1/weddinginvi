@@ -157,7 +157,7 @@ function initPetalRainCanvas() {
 
     const petalCount = 28;
     const petals = [];
-    const colors = ['#FF80AB', '#FF4081', '#F50057', '#FFCDD2', '#F8BBD0'];
+    const colors = ['#C5838D', '#D9949C', '#E8B4B8', '#DFC486', '#F5E2B5', '#8EA895', '#ADC2B3'];
 
     for (let i = 0; i < petalCount; i++) {
         petals.push({
